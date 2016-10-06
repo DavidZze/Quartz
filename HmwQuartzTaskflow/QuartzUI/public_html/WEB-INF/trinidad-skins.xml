@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<skins xmlns="http://myfaces.apache.org/trinidad/skin">
+  <!--<skin>
+    <id>csc-skin.desktop</id>
+    <family>csc-skin</family>
+    <render-kit-id>org.apache.myfaces.trinidad.desktop</render-kit-id>
+    <style-sheet-name>hand/hadf/skin/csc/csc-skin.css</style-sheet-name>
+    <extends>fusion.desktop</extends>
+  </skin>-->
+  <skin>
+    <id>GLDskin.desktop</id>
+    <family>GLDskin</family>
+    <render-kit-id>org.apache.myfaces.trinidad.desktop</render-kit-id>
+    <style-sheet-name>css/skin.css</style-sheet-name>
+    <extends>fusionFx-v1.2.desktop</extends>
+  </skin>
+</skins>

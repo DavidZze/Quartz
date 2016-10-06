@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="schedulerJobsPageDef"
+                Package="hand.hmw.framework.quartz.view.fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SchedulejobsBySqlVO1" RangeSize="25"
+              DataControl="QuartzAMDataControl"
+              id="SchedulejobsBySqlVO1Iterator"/>
+    <searchRegion Criteria="SchedulejobsBySqlVC"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SchedulejobsBySqlVO1Iterator"
+                  id="SchedulejobsBySqlVCQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="SchedulejobsBySqlVO1Iterator" id="SchedulejobsBySqlVO1">
+      <nodeDefinition DefName="hand.hmw.framework.quartz.model.queries.SchedulejobsBySqlVO"
+                      Name="SchedulejobsBySqlVO1">
+        <AttrNames>
+          <Item Value="SchedulerName"/>
+          <Item Value="JobName"/>
+          <Item Value="JobGroup"/>
+          <Item Value="JobCronExpression"/>
+          <Item Value="StartTime_tra"/>
+          <Item Value="PreFireTime_tra"/>
+          <Item Value="NextFireTime_tra"/>
+          <Item Value="TriggerState"/>
+          <Item Value="Priority"/>
+          <Item Value="JobDescription"/>
+          <Item Value="DBHostName_tra"/>
+          <Item Value="DBJndiName_tra"/>
+          <Item Value="DBPlSql_tra"/>
+          <Item Value="DBPlSql2"/>
+          <Item Value="DBPort_tra"/>
+          <Item Value="DBPwd_tra"/>
+          <Item Value="DBSid_tra"/>
+          <Item Value="DBUsername_tra"/>
+          <Item Value="JobClassName"/>
+          <Item Value="JobRequestMessage_tra"/>
+          <Item Value="JobUri_tra"/>
+          <Item Value="NextFireTime"/>
+          <Item Value="PrevFireTime"/>
+          <Item Value="StartTime"/>
+          <Item Value="TriggerType"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="SchedulejobsBySqlVO1Iterator"
+                     id="TriggerState">
+      <AttrNames>
+        <Item Value="TriggerState"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SchedulejobsBySqlVO1Iterator" id="JobName">
+      <AttrNames>
+        <Item Value="JobName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SchedulejobsBySqlVO1Iterator" id="JobGroup">
+      <AttrNames>
+        <Item Value="JobGroup"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SchedulejobsBySqlVO1Iterator"
+                     id="JobCronExpression">
+      <AttrNames>
+        <Item Value="JobCronExpression"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SchedulejobsBySqlVO1Iterator"
+                     id="StartTime_tra">
+      <AttrNames>
+        <Item Value="StartTime_tra"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SchedulejobsBySqlVO1Iterator"
+                     id="PreFireTime_tra">
+      <AttrNames>
+        <Item Value="PreFireTime_tra"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SchedulejobsBySqlVO1Iterator"
+                     id="NextFireTime_tra">
+      <AttrNames>
+        <Item Value="NextFireTime_tra"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SchedulejobsBySqlVO1Iterator"
+                     id="JobDescription">
+      <AttrNames>
+        <Item Value="JobDescription"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SchedulejobsBySqlVO1Iterator" id="JobUri_tra">
+      <AttrNames>
+        <Item Value="JobUri_tra"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SchedulejobsBySqlVO1Iterator"
+                     id="JobRequestMessage_tra">
+      <AttrNames>
+        <Item Value="JobRequestMessage_tra"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SchedulejobsBySqlVO1Iterator"
+                     id="DBHostName_tra">
+      <AttrNames>
+        <Item Value="DBHostName_tra"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SchedulejobsBySqlVO1Iterator" id="DBPort_tra">
+      <AttrNames>
+        <Item Value="DBPort_tra"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SchedulejobsBySqlVO1Iterator" id="DBSid_tra">
+      <AttrNames>
+        <Item Value="DBSid_tra"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SchedulejobsBySqlVO1Iterator"
+                     id="DBUsername_tra">
+      <AttrNames>
+        <Item Value="DBUsername_tra"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SchedulejobsBySqlVO1Iterator" id="DBPwd_tra">
+      <AttrNames>
+        <Item Value="DBPwd_tra"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SchedulejobsBySqlVO1Iterator"
+                     id="DBPlSql_tra">
+      <AttrNames>
+        <Item Value="DBPlSql_tra"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SchedulejobsBySqlVO1Iterator"
+                     id="DBJndiName_tra">
+      <AttrNames>
+        <Item Value="DBJndiName_tra"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SchedulejobsBySqlVO1Iterator" id="DBPlSql2">
+      <AttrNames>
+        <Item Value="DBPlSql2"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="SchedulejobsBySqlVO1Iterator" id="Execute"
+            InstanceName="QuartzAMDataControl.ScheduleJobsBySqlVO1"
+            DataControl="QuartzAMDataControl" RequiresUpdateModel="true"
+            Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

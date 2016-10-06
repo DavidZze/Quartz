@@ -1,0 +1,238 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="quartzuiBundle"
+         value="#{adfBundle['hand.hmw.framework.quartz.view.QuartzUIBundle']}"/>
+  <af:panelStretchLayout id="psl1">
+    <f:facet name="bottom"/>
+    <f:facet name="center">
+      <af:panelGroupLayout layout="scroll"
+                           xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                           id="pgl1"
+                           binding="#{pageFlowScope.newSchedulerJobBean.panelGL}">
+        <af:panelHeader text="#{quartzuiBundle.HND_HMW_FRM_QUARTZ_VIEW_SCHEDULER_JOB_DETAUL}" id="ph1"
+                        partialTriggers="soc1">
+          <f:facet name="context"/>
+          <f:facet name="menuBar"/>
+          <f:facet name="toolbar">
+            <af:toolbar id="t1">
+              <af:panelGroupLayout id="pgl2" layout="horizontal">
+                <af:commandToolbarButton text="#{quartzuiBundle.HND_HMW_FRM_QUARTZ_VIEW_SCHEDULER_SAVE}"
+                                         id="ctb1"
+                                         action="#{pageFlowScope.newSchedulerJobBean.saveNewJobAction}"/>
+                <af:commandToolbarButton text="#{quartzuiBundle.HND_HMW_FRM_QUARTZ_VIEW_SCHEDULER_BACK}"
+                                         id="ctb2" action="back"
+                                         actionListener="#{pageFlowScope.newSchedulerJobBean.backLsnr}"/>
+                <f:facet name="separator">
+                  <af:spacer width="10" height="10" id="s1"/>
+                </f:facet>
+              </af:panelGroupLayout>
+            </af:toolbar>
+          </f:facet>
+          <af:panelHeader text="#{quartzuiBundle.HND_HMW_FRM_QUARTZ_VIEW_SCHEDULER_NEW_JOB_TYPE_INFO}" id="ph3">
+            <f:facet name="context"/>
+            <f:facet name="menuBar"/>
+            <f:facet name="toolbar"/>
+            <af:panelFormLayout id="pfl1" labelWidth="200">
+              <af:selectOneChoice value="#{bindings.JobTypeName.inputValue}"
+                                  label="#{quartzuiBundle['hand.hmw.framework.quartz.model.JOB_TYPE_NAME']}"
+                                  required="#{bindings.JobTypeName.hints.mandatory}"
+                                  shortDesc="#{bindings.JobTypeName.hints.tooltip}"
+                                  id="soc1" autoSubmit="true"
+                                  showRequired="true">
+                <f:selectItems value="#{bindings.JobTypeName.items}" id="si1"/>
+              </af:selectOneChoice>
+              <af:inputText value="#{bindings.JobClassName.inputValue}"
+                            label="#{quartzuiBundle['hand.hmw.framework.quartz.model.JOB_CLASS_NAME']}"
+                            required="#{bindings.JobClassName.hints.mandatory}"
+                            columns="#{bindings.JobClassName.hints.displayWidth}"
+                            maximumLength="#{bindings.JobClassName.hints.precision}"
+                            shortDesc="#{bindings.JobClassName.hints.tooltip}"
+                            id="it1" disabled="true" partialTriggers="soc1">
+                <f:validator binding="#{bindings.JobClassName.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.JobDescription.inputValue}"
+                            label="#{quartzuiBundle['hand.hmw.framework.quartz.model.JOB_DESCRIPTION']}"
+                            required="#{bindings.JobDescription.hints.mandatory}"
+                            columns="#{bindings.JobDescription.hints.displayWidth}"
+                            maximumLength="#{bindings.JobDescription.hints.precision}"
+                            shortDesc="#{bindings.JobDescription.hints.tooltip}"
+                            id="it2" disabled="true" partialTriggers="soc1">
+                <f:validator binding="#{bindings.JobDescription.validator}"/>
+              </af:inputText>
+            </af:panelFormLayout>
+          </af:panelHeader>
+          <af:panelHeader text="#{quartzuiBundle.HND_HMW_FRM_QUARTZ_VIEW_SCHEDULER_NEW_JOB_WEBSERVICE_INFO}" id="ph4"
+                          rendered="#{bindings.JobTypeId.inputValue == '1'}">
+            <f:facet name="context"/>
+            <f:facet name="menuBar"/>
+            <f:facet name="toolbar"/>
+            <af:panelFormLayout id="pfl2" labelWidth="200">
+              <af:inputText
+                            id="it3" showRequired="true"
+                            value="#{pageFlowScope.newSchedulerJobBean.uri}"
+                            columns="80"
+                            label="#{quartzuiBundle.HND_HMW_FRM_QUARTZ_VIEW_SCHEDULER_WEBSERVICE_URI}"/>
+            </af:panelFormLayout>
+            <af:panelFormLayout id="pfl15" labelWidth="77">
+              <af:outputText value="#{quartzuiBundle.HND_HMW_FRM_QUARTZ_VIEW_SCHEDULER_WEBSERVICE_REQUEST_MESSGAE}:" id="ot4"/>
+            </af:panelFormLayout>
+            <af:panelFormLayout id="pfl14" labelWidth="200">
+              <f:facet name="footer"/>
+              <af:inputText id="it4" columns="80" rows="15" showRequired="true"
+                            value="#{pageFlowScope.newSchedulerJobBean.requestMessage}"/>
+            </af:panelFormLayout>
+          </af:panelHeader>
+          <af:panelHeader text="#{quartzuiBundle.HND_HMW_FRM_QUARTZ_VIEW_SCHEDULER_NEW_JOB_DB_INFO}" id="ph5"
+                          rendered="#{bindings.JobTypeId.inputValue == '2'}"
+                          partialTriggers="soc2">
+            <f:facet name="context"/>
+            <f:facet name="menuBar"/>
+            <f:facet name="toolbar"/>
+            <af:panelFormLayout id="pfl5" labelWidth="200">
+              <af:selectOneChoice value="#{bindings.ConnTypeName.inputValue}"
+                                  required="#{bindings.ConnTypeName.hints.mandatory}"
+                                  shortDesc="#{bindings.ConnTypeName.hints.tooltip}"
+                                  id="soc2" showRequired="true"
+                                  autoSubmit="true"
+                                  label="#{quartzuiBundle['hand.hmw.framework.quartz.model.DB_CONN_TYPE']}">
+                <f:selectItems value="#{bindings.ConnTypeName.items}" id="si2"/>
+              </af:selectOneChoice>
+            </af:panelFormLayout>
+            <af:spacer width="10" height="10" id="s2"/>
+            <af:panelFormLayout id="pfl4" labelWidth="200">
+              <af:inputText value="#{bindings.JndiName.inputValue}"
+                            required="#{bindings.JndiName.hints.mandatory}"
+                            columns="30"
+                            maximumLength="#{bindings.JndiName.hints.precision}"
+                            shortDesc="#{bindings.JndiName.hints.tooltip}"
+                            id="it9" showRequired="true"
+                            rendered="#{bindings.ConnTypeId.inputValue == '2'}"
+                            label="#{quartzuiBundle['hand.hmw.framework.quartz.model.JNDI_NAME']}:">
+                <f:validator binding="#{bindings.JndiName.validator}"/>
+              </af:inputText>
+            </af:panelFormLayout>
+            <af:panelFormLayout id="pfl13" labelWidth="124"
+                                rendered="#{bindings.ConnTypeId.inputValue == '2'}">
+              <af:outputText value="#{quartzuiBundle['hand.hmw.framework.quartz.model.PLSQL']}:" id="ot3"/>
+            </af:panelFormLayout>
+            <af:panelFormLayout id="pfl12" labelWidth="200">
+              <af:inputText value="#{bindings.PlSql2.inputValue}"
+                            required="#{bindings.PlSql2.hints.mandatory}"
+                            columns="80"
+                            maximumLength="#{bindings.PlSql2.hints.precision}"
+                            shortDesc="#{bindings.PlSql2.hints.tooltip}"
+                            id="it12" rows="5" showRequired="true"
+                            rendered="#{bindings.ConnTypeId.inputValue == '2'}">
+                <f:validator binding="#{bindings.PlSql2.validator}"/>
+              </af:inputText>
+            </af:panelFormLayout>
+            <af:panelFormLayout id="pfl11" labelWidth="200">
+              <af:inputText value="#{bindings.HostName.inputValue}"
+                            required="#{bindings.HostName.hints.mandatory}"
+                            columns="#{bindings.HostName.hints.displayWidth}"
+                            maximumLength="#{bindings.HostName.hints.precision}"
+                            shortDesc="#{bindings.HostName.hints.tooltip}"
+                            id="it10" showRequired="true"
+                            rendered="#{bindings.ConnTypeId.inputValue == '1'}"
+                            label="#{quartzuiBundle['hand.hmw.framework.quartz.model.HOST_NAME']}:">
+                <f:validator binding="#{bindings.HostName.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Port.inputValue}"
+                            required="#{bindings.Port.hints.mandatory}"
+                            columns="#{bindings.Port.hints.displayWidth}"
+                            maximumLength="#{bindings.Port.hints.precision}"
+                            shortDesc="#{bindings.Port.hints.tooltip}" id="it15"
+                            showRequired="true"
+                            rendered="#{bindings.ConnTypeId.inputValue == '1'}"
+                            label="#{quartzuiBundle['hand.hmw.framework.quartz.model.PORT']}:">
+                <f:validator binding="#{bindings.Port.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.SId.inputValue}"
+                            required="#{bindings.SId.hints.mandatory}"
+                            columns="#{bindings.SId.hints.displayWidth}"
+                            maximumLength="#{bindings.SId.hints.precision}"
+                            shortDesc="#{bindings.SId.hints.tooltip}" id="it14"
+                            showRequired="true"
+                            rendered="#{bindings.ConnTypeId.inputValue == '1'}"
+                            label="#{quartzuiBundle['hand.hmw.framework.quartz.model.SID']}:">
+                <f:validator binding="#{bindings.SId.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.UserName.inputValue}"
+                            required="#{bindings.UserName.hints.mandatory}"
+                            columns="40"
+                            maximumLength="#{bindings.UserName.hints.precision}"
+                            shortDesc="#{bindings.UserName.hints.tooltip}"
+                            id="it13" showRequired="true"
+                            rendered="#{bindings.ConnTypeId.inputValue == '1'}"
+                            label="#{quartzuiBundle['hand.hmw.framework.quartz.model.USERNAME']}:">
+                <f:validator binding="#{bindings.UserName.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Pwd.inputValue}"
+                            required="#{bindings.Pwd.hints.mandatory}"
+                            columns="#{bindings.Pwd.hints.displayWidth}"
+                            maximumLength="#{bindings.Pwd.hints.precision}"
+                            shortDesc="#{bindings.Pwd.hints.tooltip}" id="it8"
+                            showRequired="true"
+                            rendered="#{bindings.ConnTypeId.inputValue == '1'}"
+                            label="#{quartzuiBundle['hand.hmw.framework.quartz.model.PWD']}:">
+                <f:validator binding="#{bindings.Pwd.validator}"/>
+              </af:inputText>
+            </af:panelFormLayout>
+            <af:panelFormLayout id="pfl10" labelWidth="124"
+                                rendered="#{bindings.ConnTypeId.inputValue == '1'}">
+              <af:outputText value="#{quartzuiBundle['hand.hmw.framework.quartz.model.PLSQL']}:" id="ot2"/>
+            </af:panelFormLayout>
+            <af:panelFormLayout id="pfl9" labelWidth="200"
+                                rendered="#{bindings.ConnTypeId.inputValue == '1'}">
+              <af:inputText value="#{bindings.PlSql.inputValue}"
+                            required="#{bindings.PlSql.hints.mandatory}"
+                            columns="80"
+                            maximumLength="#{bindings.PlSql.hints.precision}"
+                            shortDesc="#{bindings.PlSql.hints.tooltip}"
+                            id="it11" rows="5" showRequired="true"
+                            rendered="#{bindings.ConnTypeId.inputValue == '1'}">
+                <f:validator binding="#{bindings.PlSql.validator}"/>
+              </af:inputText>
+            </af:panelFormLayout>
+          </af:panelHeader>
+          <af:panelHeader text="#{quartzuiBundle.HND_HMW_FRM_QUARTZ_VIEW_SCHEDULER_NEW_JOB_INFO}" id="ph6">
+            <f:facet name="context"/>
+            <f:facet name="menuBar"/>
+            <f:facet name="toolbar"/>
+            <af:panelFormLayout id="pfl3" labelWidth="200">
+              <af:inputText id="it5"
+                            showRequired="true"
+                            value="#{pageFlowScope.newSchedulerJobBean.jobName}"
+                            label="#{quartzuiBundle.HND_HMW_FRM_QUARTZ_VIEW_SCHEDULER_JOB_NAME}"
+                            columns="40"/>
+            </af:panelFormLayout>
+            <af:panelFormLayout id="pfl8" labelWidth="163">
+              <af:outputText value="#{quartzuiBundle.HND_HMW_FRM_QUARTZ_VIEW_SCHEDULER_JOB_REMARK}" id="ot1"/>
+            </af:panelFormLayout>
+            <af:panelFormLayout id="pfl7" labelWidth="200">
+              <af:inputText id="it6" columns="80" rows="5"
+                            value="#{pageFlowScope.newSchedulerJobBean.jobDesc}"/>
+            </af:panelFormLayout>
+          </af:panelHeader>
+        </af:panelHeader>
+        <af:panelHeader text="#{quartzuiBundle.HND_HMW_FRM_QUARTZ_VIEW_SCHEDULER_CRON_TRIGGER_INFO}" id="ph2">
+          <f:facet name="context"/>
+          <f:facet name="menuBar"/>
+          <f:facet name="toolbar"/>
+          <af:panelFormLayout id="pfl6" labelWidth="211">
+            <af:inputText label="#{quartzuiBundle.HND_HMW_FRM_QUARTZ_VIEW_SCHEDULER_CRON_EXPR}"
+                          id="it7" showRequired="true"
+                          value="#{pageFlowScope.newSchedulerJobBean.cronExpr}"
+                          columns="40"/>
+          </af:panelFormLayout>
+        </af:panelHeader>
+      </af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="start"/>
+    <f:facet name="end"/>
+    <f:facet name="top"/>
+  </af:panelStretchLayout>
+</jsp:root>

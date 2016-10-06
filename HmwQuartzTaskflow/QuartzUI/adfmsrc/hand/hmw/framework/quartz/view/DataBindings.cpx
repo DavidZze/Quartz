@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.64.93" id="DataBindings" SeparateXMLFiles="false"
+             Package="hand.hmw.framework.quartz.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/hand/hmw/framework/quartz/view/pages/SchedulerJobPage.jspx"
+          usageId="hand_hmw_framework_quartz_view_testPageDef"/>
+    <page path="/hand/hmw/framework/quartz/view/fragments/schedulerJobs.jsff"
+          usageId="hand_hmw_framework_quartz_view_schedulerJobsPageDef"/>
+    <page path="/WEB-INF/hand/hmw/framework/quartz/view/taskflows/schedulerJob-taskflow.xml#schedulerJob-taskflow@Rollback"
+          usageId="hand_hmw_framework_quartz_view_schedulerJob_taskflow_schedulerJob_taskflow_RollbackPageDef"/>
+    <page path="/WEB-INF/hand/hmw/framework/quartz/view/taskflows/schedulerJob-taskflow.xml#schedulerJob-taskflow@Execute"
+          usageId="hand_hmw_framework_quartz_view_schedulerJob_taskflow_schedulerJob_taskflow_ExecutePageDef"/>
+    <page path="/hand/hmw/framework/quartz/view/fragments/newDeployeJobPage.jsff"
+          usageId="hand_hmw_framework_quartz_view_newDeployeJobPagePageDef"/>
+    <page path="/hand/hmw/framework/quartz/view/fragments/jobDetail.jsff"
+          usageId="hand_hmw_framework_quartz_view_jobDetailPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="hand_hmw_framework_quartz_view_testPageDef"
+          path="hand.hmw.framework.quartz.view.pages.testPageDef"/>
+    <page id="hand_hmw_framework_quartz_view_schedulerJobsPageDef"
+          path="hand.hmw.framework.quartz.view.fragments.schedulerJobsPageDef"/>
+    <page id="hand_hmw_framework_quartz_view_schedulerJob_taskflow_schedulerJob_taskflow_RollbackPageDef"
+          path="hand.hmw.framework.quartz.view.taskflows.schedulerJob_taskflow_schedulerJob_taskflow_RollbackPageDef"/>
+    <page id="hand_hmw_framework_quartz_view_schedulerJob_taskflow_schedulerJob_taskflow_ExecutePageDef"
+          path="hand.hmw.framework.quartz.view.taskflows.schedulerJob_taskflow_schedulerJob_taskflow_ExecutePageDef"/>
+    <page id="hand_hmw_framework_quartz_view_newDeployeJobPagePageDef"
+          path="hand.hmw.framework.quartz.view.fragments.newDeployeJobPagePageDef"/>
+    <page id="hand_hmw_framework_quartz_view_jobDetailPageDef"
+          path="hand.hmw.framework.quartz.view.fragments.jobDetailPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="QuartzAMDataControl"
+                     Package="hand.hmw.framework.quartz.model.services"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="QuartzAMLocal"
+                     syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="QuartzAMDataControl1"
+                     Package="com.hand.apps.quartz.model.services"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="QuartzAMLocal"
+                     syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

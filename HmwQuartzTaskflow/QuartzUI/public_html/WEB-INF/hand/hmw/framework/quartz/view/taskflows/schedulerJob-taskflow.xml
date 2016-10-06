@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="schedulerJob-taskflow">
+    <default-activity id="__1">schedulerJobs</default-activity>
+    <managed-bean id="__2">
+      <managed-bean-name id="__4">jobQueryPageManageBean</managed-bean-name>
+      <managed-bean-class id="__5">hand.hmw.framework.quartz.view.backingBean.JobQueryPageManageBean</managed-bean-class>
+      <managed-bean-scope id="__3">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__8">
+      <managed-bean-name id="__9">newSchedulerJobBean</managed-bean-name>
+      <managed-bean-class id="__6">hand.hmw.framework.quartz.view.backingBean.NewSchedulerJobBean</managed-bean-class>
+      <managed-bean-scope id="__7">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="schedulerJobs">
+      <page>/hand/hmw/framework/quartz/view/fragments/schedulerJobs.jsff</page>
+    </view>
+    <view id="newDeployeJobPage">
+      <page>/hand/hmw/framework/quartz/view/fragments/newDeployeJobPage.jsff</page>
+    </view>
+    <method-call id="Rollback">
+      <method>#{bindings.Rollback.execute}</method>
+      <outcome id="__15">
+        <fixed-outcome>Rollback</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="Execute">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome id="__16">
+        <fixed-outcome>Execute</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="helpPage">
+      <page>/hand/hmw/framework/quartz/view/fragments/helpPage.jsff</page>
+    </view>
+    <view id="jobDetail">
+      <page>/hand/hmw/framework/quartz/view/fragments/jobDetail.jsff</page>
+    </view>
+    <control-flow-rule id="__10">
+      <from-activity-id id="__11">schedulerJobs</from-activity-id>
+      <control-flow-case id="__13">
+        <from-outcome id="__14">newJob</from-outcome>
+        <to-activity-id id="__12">newDeployeJobPage</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__32">
+        <from-outcome id="__34">help1</from-outcome>
+        <to-activity-id id="__33">helpPage</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__36">
+        <from-outcome id="__37">goDetail</from-outcome>
+        <to-activity-id id="__35">jobDetail</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__17">
+      <from-activity-id id="__18">newDeployeJobPage</from-activity-id>
+      <control-flow-case id="__20">
+        <from-outcome id="__21">back</from-outcome>
+        <to-activity-id id="__19">Rollback</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__47">
+        <from-outcome id="__48">help2</from-outcome>
+        <to-activity-id id="__46">helpPage</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__22">
+      <from-activity-id id="__23">Rollback</from-activity-id>
+      <control-flow-case id="__26">
+        <from-outcome id="__24">Rollback</from-outcome>
+        <to-activity-id id="__25">Execute</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__27">
+      <from-activity-id id="__28">Execute</from-activity-id>
+      <control-flow-case id="__29">
+        <from-outcome id="__31">Execute</from-outcome>
+        <to-activity-id id="__30">schedulerJobs</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__38">
+      <from-activity-id id="__39">helpPage</from-activity-id>
+      <control-flow-case id="__41">
+        <from-outcome id="__42">backQuery</from-outcome>
+        <to-activity-id id="__40">schedulerJobs</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__49">
+        <from-outcome id="__51">backNew</from-outcome>
+        <to-activity-id id="__50">newDeployeJobPage</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__43">
+      <from-activity-id id="__44">jobDetail</from-activity-id>
+      <control-flow-case id="__52">
+        <from-outcome id="__53">back</from-outcome>
+        <to-activity-id id="__45">schedulerJobs</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

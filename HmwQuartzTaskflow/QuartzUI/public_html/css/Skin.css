@@ -1,0 +1,1223 @@
+/* Copyright (c) 2008, 2010, Oracle and/or its affiliates. 
+All rights reserved. */
+
+/**
+ * WebCenter Fusion FX skin
+ *
+ */
+
+
+/**
+ * Default Font Family, e.g.
+ * font-family: Tahoma,Verdana,Helvetica,sans-serif
+ */
+.AFDefaultFontFamily:alias
+{
+   font-family: Microsoft YaHei;
+}
+
+
+/**
+ * Default Font Size, e.g.
+ * font-size: 11px;
+ */
+.AFDefaultFont:alias
+{
+   font-family: Microsoft YaHei;
+   font-size: 13px;
+}
+
+
+/**
+ * Text foreground color.
+ */
+.AFTextForeground:alias
+{
+  color: #333333;
+}
+
+
+/**
+ * Label text color.
+ */
+.AFLabelTextForeground:alias,
+.AFLabelTextForegroundDisabled:alias
+{
+}
+
+
+/**
+ * Font used in banner to display the page title.
+ */
+.AFBrandingBarTitle
+{
+  font-family:tahoma,verdana,helvetica,sans-serif;
+}
+
+
+/**
+ * Main area of the page template below the top banner.
+ * By default, this is the dark blue area below the banner.
+ */
+.WCPageTemplate:alias
+{
+  background-image:url(/afr/fusion/dbd_centerGradient.png);
+  background-repeat:repeat-y;
+  background-position:top center;
+  background-color: #024296;
+}
+
+/**
+ * Area of the page template containing the actual page content.
+ * Use this to specify the background color of the page content.
+ */
+.WCContent
+{
+  background-color:#EEF3F8;
+  border-top:1px solid #BECFE2;
+}
+
+
+/**
+ * Background shading used in some areas (e.g. blogs).
+ */
+.WCMediumBackground
+{
+  background-color:#DBE6F1;
+}
+
+
+/**
+ * Background color and image for SDFs and Portlets.
+ */
+.WCPortletContentMedium:alias
+{
+}
+
+.WCPortletContentDark:alias
+{
+}
+
+
+/**
+ * Input Components
+ *
+ */
+
+/* border and background on inputText components */
+.AFFormControlContentBorder:alias
+{
+}
+.AFFormControlContentBackground:alias
+{
+}
+
+/* foreground and background color on disabled inputText components */
+.AFFormControlContentForegroundDisabled:alias
+{
+}
+.AFFormControlContentBackgroundDisabled:alias
+{
+}
+
+
+/**
+ * Links
+ *
+ * Foreground color and border style for regular links, visited
+ * links, and active links.
+ */
+.AFLinkForeground:alias
+{
+}
+
+.AFVisitedLinkForeground:alias,
+.AFActiveLinkForeground:alias
+{
+}
+
+.AFActiveLinkBorder:alias
+{
+}
+
+
+/**
+ * Menus
+ *
+ * Menu items are items inside a menu, including sub-menus.
+ * Menu bar-items are items directly on a menuBar, similar to buttons.
+ *
+ */
+
+/* menu text color */
+.AFMenuTextForeground:alias
+{
+}
+
+/* menu item (height) */
+af|commandMenuItem::menu-item,
+af|goMenuItem::menu-item,
+af|menu::submenu
+{
+}
+
+/* menu item - highlight (color and background-color) */
+af|commandMenuItem:highlighted::menu-item-text,
+af|commandMenuItem:highlighted::menu-item-icon-style,
+af|commandMenuItem:highlighted::menu-item-accelerator,
+af|commandMenuItem:highlighted::menu-item-open-indicator,
+af|goMenuItem:highlighted::menu-item-text,
+af|goMenuItem:highlighted::menu-item-icon-style,
+af|goMenuItem:highlighted::menu-item-accelerator,
+af|goMenuItem:highlighted::menu-item-open-indicator,
+af|menu:highlighted::submenu-text,
+af|menu:highlighted::submenu-icon-style,
+af|menu:highlighted::submenu-accelerator,
+af|menu:highlighted::submenu-open-indicator
+{
+}
+
+/* menu bar-item (height)*/
+af|commandMenuItem::bar-item,
+af|goMenuItem::bar-item,
+af|menu::bar-item
+{
+}
+
+/* menu bar-item - highlight (background-image and background-color) */
+af|commandMenuItem::bar-item:highlighted,
+af|goMenuItem::bar-item:highlighted,
+af|menu::bar-item:highlighted
+{
+}
+
+/* menu bar-item - depressed (background-image and background-color) */
+af|commandMenuItem::bar-item:depressed,
+af|goMenuItem::bar-item:depressed,
+af|menu::bar-item:depressed
+{
+}
+
+
+
+/**
+ * Buttons
+ *
+ */
+
+/* Button background color, e.g. background-color: gray; background-image: ... */
+.AFButtonBackground:alias
+{
+}
+
+.AFButtonBackgroundHover:alias
+{
+}
+
+.AFButtonBackgroundActive:alias
+{
+}
+
+.AFButtonBackgroundFocus:alias
+{
+}
+
+.AFButtonBackgroundDisabled:alias
+{
+}
+
+/* Button border, also used by menus, e.g. border: 1px solid black; */
+.AFButtonBorder:alias
+{
+}
+
+.AFButtonBorderHover:alias
+{
+}
+
+.AFButtonBorderActive:alias,
+.AFButtonBorderDepressed:alias
+{
+}
+
+.AFButtonBorderDisabled:alias
+{
+}
+
+/* Button text color for regular buttons, e.g. color: black; */
+.AFButtonForeground:alias
+{
+}
+
+.AFButtonForegroundHover:alias
+{
+}
+
+.AFButtonForegroundDepressed:alias
+{
+}
+
+.AFButtonForegroundDisabled:alias
+{
+}
+
+/* Button text color for toolbar buttons with text */
+.AFButtonText:alias
+{
+}
+
+.AFButtonTextHover:alias
+{
+}
+
+.AFButtonTextDepressed:alias
+{
+}
+
+.AFButtonTextDisabled:alias
+{
+}
+
+
+/**
+ * DecorativeBoxes and PanelTabbed.  DecorativeBoxes are boxes with 
+ * decoration on all four sides and all four corners, e.g. rounded
+ * corners or shadows.  The styles used by decorativeBoxes are shared
+ * with the content area of panelTabbed (below the tabs themselves).
+ *
+ * There are three styles of tabs that should be skinned
+ *  1) normal (no theme)
+ *  2) level 1 (theme="medium")
+ *  3) level 2 (theme="light")
+ *
+ * For tabs, both the tabs themselves are skinned, as well as the 
+ * content area below the tabs.  The content area is what is shared
+ * with decorativeBox.
+ *
+ */
+
+
+/**
+ * Normal tabs, e.g. in dialogs, outside the "theme" hierarchy
+ *
+ * Specify the background images for each of the following aliases,
+ * plus a font and color for the tab text.
+ *
+ */
+
+/* normal unselected tabs */
+.AFTabAboveStartUnselectedBackground:alias:ltr
+{
+}
+.AFTabAboveStartUnselectedBackground:alias:rtl
+{
+} 
+.AFTabAboveMiddleUnselectedBackground:alias
+{
+}
+.AFTabAboveEndUnselectedBackground:alias:ltr
+{
+} 
+.AFTabAboveEndUnselectedBackground:alias:rtl
+{
+}
+af|panelTabbed::tab af|panelTabbed::tab-content,
+af|panelTabbed::tab af|panelTabbed::tab-text-link,
+af|navigationPane-tabs::tab af|navigationPane-tabs::tab-content,
+af|navigationPane-tabs::tab af|navigationPane-tabs::tab-link
+{
+}
+af|panelTabbed::tab:hover af|panelTabbed::tab-content,
+af|panelTabbed::tab:hover af|panelTabbed::tab-text-link,
+af|navigationPane-tabs::tab:hover af|navigationPane-tabs::tab-content,
+af|navigationPane-tabs::tab:hover af|navigationPane-tabs::tab-link
+{
+}
+
+/* normal selected tabs */
+.AFTabAboveStartSelectedBackground:alias:ltr
+{
+} 
+.AFTabAboveStartSelectedBackground:alias:rtl
+{
+}
+.AFTabAboveMiddleSelectedBackground:alias
+{
+}
+.AFTabAboveEndSelectedBackground:alias:ltr
+{
+} 
+.AFTabAboveEndSelectedBackground:alias:rtl
+{
+}
+af|panelTabbed::tab:selected af|panelTabbed::tab-content,
+af|panelTabbed::tab:selected af|panelTabbed::tab-text-link,
+af|navigationPane-tabs::tab:selected af|navigationPane-tabs::tab-content,
+af|navigationPane-tabs::tab:selected af|navigationPane-tabs::tab-link
+{
+}
+af|panelTabbed::tab:selected:hover af|panelTabbed::tab-content,
+af|panelTabbed::tab:selected:hover af|panelTabbed::tab-text-link,
+af|navigationPane-tabs::tab:selected:hover af|navigationPane-tabs::tab-content,
+af|navigationPane-tabs::tab:selected:hover af|navigationPane-tabs::tab-link
+{
+}
+
+/* normal content */
+af|panelTabbed::header-start
+{
+}
+af|panelTabbed::header-center
+{
+}
+af|panelTabbed::header-end
+{
+}
+af|panelTabbed::body-start
+{
+}
+af|panelTabbed::body
+{
+}
+af|panelTabbed::body-end
+{
+}
+af|panelTabbed::footer-start
+{
+}
+af|panelTabbed::footer-center
+{
+}
+af|panelTabbed::footer-end
+{
+}
+
+/* normal content rtl */
+af|panelTabbed::header-start:rtl
+{
+}
+af|panelTabbed::header-end:rtl
+{
+}
+af|panelTabbed::body-start:rtl
+{
+}
+af|panelTabbed::body-end:rtl
+{
+}
+af|panelTabbed::footer-start:rtl
+{
+}
+af|panelTabbed::footer-end:rtl
+{
+}
+
+
+/**
+ * Level 1 (medium) tabs.
+ *
+ * Specify the background images for each of the following aliases,
+ * plus a font and color for the tab text.
+ *
+ */
+
+/* level 1 unselected tabs */
+.AFTabAboveStartUnselectedLevel1Background:alias
+{
+}
+.AFTabAboveStartUnselectedLevel1Background:alias:rtl
+{
+}
+.AFTabAboveMiddleUnselectedLevel1Background:alias
+{
+}
+.AFTabAboveEndUnselectedLevel1Background:alias
+{
+}
+.AFTabAboveEndUnselectedLevel1Background:alias:rtl
+{
+}
+af|panelTabbed::tab af|panelTabbed::tab-content[theme="dark"],
+af|panelTabbed::tab af|panelTabbed::tab-text-link[theme="dark"],
+af|navigationPane-tabs::tab af|navigationPane-tabs::tab-link[theme="medium"],
+af|navigationPane-tabs::tab af|navigationPane-tabs::tab-content[theme="medium"]
+{
+}
+af|panelTabbed::tab:hover af|panelTabbed::tab-content[theme="dark"],
+af|panelTabbed::tab:hover af|panelTabbed::tab-text-link[theme="dark"],
+af|navigationPane-tabs::tab:hover af|navigationPane-tabs::tab-link[theme="medium"],
+af|navigationPane-tabs::tab:hover af|navigationPane-tabs::tab-content[theme="medium"]
+{
+}
+
+/* level 1 selected tabs */
+.AFTabAboveStartSelectedLevel1Background:alias
+{
+}
+.AFTabAboveStartSelectedLevel1Background:alias:rtl
+{ 
+}
+.AFTabAboveMiddleSelectedLevel1Background:alias
+{
+}
+.AFTabAboveEndSelectedLevel1Background:alias
+{
+}
+.AFTabAboveEndSelectedLevel1Background:alias:rtl
+{ 
+}
+af|panelTabbed::tab:selected af|panelTabbed::tab-content[theme="dark"],
+af|panelTabbed::tab:selected af|panelTabbed::tab-text-link[theme="dark"],
+af|panelTabbed::tab:selected:hover af|panelTabbed::tab-content[theme="dark"],
+af|panelTabbed::tab:selected:hover af|panelTabbed::tab-text-link[theme="dark"],
+af|navigationPane-tabs::tab:selected af|navigationPane-tabs::tab-content[theme="medium"],
+af|navigationPane-tabs::tab:selected af|navigationPane-tabs::tab-link[theme="medium"],
+af|navigationPane-tabs::tab:selected:hover af|navigationPane-tabs::tab-content[theme="medium"],
+af|navigationPane-tabs::tab:selected:hover af|navigationPane-tabs::tab-link[theme="medium"]
+{
+}
+
+/* level 1 content -- also used for "medium" decorativeBoxes */
+af|panelTabbed::header-start[theme="dark"],
+af|decorativeBox::top-start[theme="medium"]
+{
+}
+af|panelTabbed::header-center[theme="dark"],
+af|decorativeBox::top[theme="medium"]
+{
+}
+af|panelTabbed::header-end[theme="dark"],
+af|decorativeBox::top-end[theme="medium"]
+{
+}
+af|panelTabbed::body-start[theme="dark"],
+af|decorativeBox::start[theme="medium"]
+{
+}
+af|panelTabbed::body[theme="dark"],
+af|decorativeBox::center[theme="medium"]
+{
+}
+af|panelTabbed::body-end[theme="dark"],
+af|decorativeBox::end[theme="medium"]
+{
+}
+af|panelTabbed::footer-start[theme="dark"],
+af|decorativeBox::bottom-start[theme="medium"]
+{
+}
+af|panelTabbed::footer-center[theme="dark"],
+af|decorativeBox::bottom[theme="medium"]
+{
+}
+af|panelTabbed::footer-end[theme="dark"],
+af|decorativeBox::bottom-end[theme="medium"]
+{
+}
+
+/* rtl */
+af|panelTabbed::header-start[theme="dark"]:rtl,
+af|decorativeBox::top-start[theme="medium"]:rtl
+{
+}
+af|panelTabbed::header-end[theme="dark"]:rtl,
+af|decorativeBox::top-end[theme="medium"]:rtl
+{
+}
+af|panelTabbed::body-start[theme="dark"]:rtl,
+af|decorativeBox::start[theme="medium"]:rtl
+{
+}
+af|panelTabbed::body-end[theme="dark"]:rtl,
+af|decorativeBox::end[theme="medium"]:rtl
+{
+}
+af|panelTabbed::footer-start[theme="dark"]:rtl,
+af|decorativeBox::bottom-start[theme="medium"]:rtl
+{
+}
+af|panelTabbed::footer-end[theme="dark"]:rtl,
+af|decorativeBox::bottom-end[theme="medium"]:rtl
+{
+}
+
+
+/**
+ * Level 2 (light) tabs.
+ *
+ * Specify the background images for each of the following aliases,
+ * plus a font and color for the tab text.
+ *
+ */
+
+/* level 2 unselected tabs */
+.AFTabAboveStartUnselectedLevel2Background:alias
+{
+}
+.AFTabAboveStartUnselectedLevel2Background:alias:rtl
+{
+}
+.AFTabAboveMiddleUnselectedLevel2Background:alias
+{
+}
+.AFTabAboveEndUnselectedLevel2Background:alias
+{
+}
+.AFTabAboveEndUnselectedLevel2Background:alias:rtl
+{
+}
+af|panelTabbed::tab af|panelTabbed::tab-content[theme="medium"],
+af|panelTabbed::tab af|panelTabbed::tab-text-link[theme="medium"],
+af|navigationPane-tabs::tab af|navigationPane-tabs::tab-link[theme="light"],
+af|navigationPane-tabs::tab af|navigationPane-tabs::tab-content[theme="light"]
+{
+}
+af|panelTabbed::tab:hover af|panelTabbed::tab-content[theme="medium"],
+af|panelTabbed::tab:hover af|panelTabbed::tab-text-link[theme="medium"],
+af|navigationPane-tabs::tab:hover af|navigationPane-tabs::tab-link[theme="light"],
+af|navigationPane-tabs::tab:hover af|navigationPane-tabs::tab-content[theme="light"]
+{
+}
+
+/* level 2 selected tabs */
+.AFTabAboveStartSelectedLevel2Background:alias
+{
+}
+.AFTabAboveStartSelectedLevel2Background:alias:rtl
+{ 
+}
+.AFTabAboveMiddleSelectedLevel2Background:alias
+{
+}
+.AFTabAboveEndSelectedLevel2Background:alias
+{
+}
+.AFTabAboveEndSelectedLevel2Background:alias:rtl
+{ 
+}
+af|panelTabbed::tab:selected af|panelTabbed::tab-content[theme="medium"],
+af|panelTabbed::tab:selected af|panelTabbed::tab-text-link[theme="medium"],
+af|panelTabbed::tab:selected:hover af|panelTabbed::tab-content[theme="medium"],
+af|panelTabbed::tab:selected:hover af|panelTabbed::tab-text-link[theme="medium"],
+af|navigationPane-tabs::tab:selected af|navigationPane-tabs::tab-content[theme="light"],
+af|navigationPane-tabs::tab:selected af|navigationPane-tabs::tab-link[theme="light"],
+af|navigationPane-tabs::tab:selected:hover af|navigationPane-tabs::tab-content[theme="light"],
+af|navigationPane-tabs::tab:selected:hover af|navigationPane-tabs::tab-link[theme="light"]
+{
+}
+
+/* level 2 content -- also used for "light" decorativeBoxes */
+af|panelTabbed::header-start[theme="medium"],
+af|decorativeBox::top-start[theme="light"]
+{
+}
+af|panelTabbed::header-center[theme="medium"],
+af|decorativeBox::top[theme="light"]
+{
+}
+af|panelTabbed::header-end[theme="medium"],
+af|decorativeBox::top-end[theme="light"]
+{
+}
+af|panelTabbed::body-start[theme="medium"],
+af|decorativeBox::start[theme="light"]
+{
+}
+af|panelTabbed::body[theme="medium"],
+af|decorativeBox::center[theme="light"]
+{
+}
+af|panelTabbed::body-end[theme="medium"],
+af|decorativeBox::end[theme="light"]
+{
+}
+af|panelTabbed::footer-start[theme="medium"],
+af|decorativeBox::bottom-start[theme="light"]
+{
+}
+af|panelTabbed::footer-center[theme="medium"],
+af|decorativeBox::bottom[theme="light"]
+{
+}
+af|panelTabbed::footer-end[theme="medium"],
+af|decorativeBox::bottom-end[theme="light"]
+{
+}
+
+/* rtl */
+af|panelTabbed::header-start[theme="medium"]:rtl,
+af|decorativeBox::top-start[theme="light"]:rtl
+{
+}
+af|panelTabbed::header-end[theme="medium"]:rtl,
+af|decorativeBox::top-end[theme="light"]:rtl
+{
+}
+af|panelTabbed::body-start[theme="medium"]:rtl,
+af|decorativeBox::start[theme="light"]:rtl
+{
+}
+af|panelTabbed::body-end[theme="medium"]:rtl,
+af|decorativeBox::end[theme="light"]:rtl
+{
+}
+af|panelTabbed::footer-start[theme="medium"]:rtl,
+af|decorativeBox::bottom-start[theme="light"]:rtl
+{
+}
+af|panelTabbed::footer-end[theme="medium"]:rtl,
+af|decorativeBox::bottom-end[theme="light"]:rtl
+{
+}
+
+
+<!-- custom skin -->
+.AFDefaultFont:alias {
+    font-size: 13px;
+    font-family: Microsoft YaHei;
+}
+.AFRequiredIconStyle {
+    color: red !important;
+}
+
+/*af|query, af|showDetailHeader {
+    border-bottom: 1px solid #CCCCCC;
+}*/
+
+/*af|query {
+    border-bottom: 1px solid #CCCCCC;
+}*/
+
+af|query::title-table, af|showDetailHeader::title-table {
+    height:32px;
+    border-top:1px solid #CCCCCC;
+    border-bottom:1px solid #CCCCCC;
+    font:16px/32px Microsoft YaHei !important;
+}
+
+af|query::title1, af|query::title-start1, af|query::title-end1,
+af|showDetailHeader::title0, af|showDetailHeader::title-start0, af|showDetailHeader::title-end0,
+af|showDetailHeader::title1, af|showDetailHeader::title-start1, af|showDetailHeader::title-end1,
+af|showDetailHeader::title2, af|showDetailHeader::title-start2, af|showDetailHeader::title-end2{
+    background-image:none;
+    background-color:white;
+}
+
+af|query::title-text1,
+af|showDetailHeader::title-text0, af|showDetailHeader::title-text1, af|showDetailHeader::title-text2 {
+    font:16px/32px Microsoft YaHei !important;
+    font-weight: normal;
+    color: Black;
+}
+
+af|query::disclosed-icon-style,
+af|showDetailHeader::disclosed-icon-style, af|showDetailHeader::disclosed-icon-style:hover {
+    background-image: url(http://home.glodon.com:7778/resources/icon/disclose_icon.png);
+    margin-left:1px;
+    margin-right:4px;
+}
+af|query::undisclosed-icon-style, af|showDetailHeader::undisclosed-icon-style {
+    background-image: url(http://home.glodon.com:7778/resources/icon/undisclose_icon.png);
+    margin-left:1px;
+    margin-right:4px;
+}
+
+af|query::content1,
+af|showDetailHeader::content0, af|showDetailHeader::content1, af|showDetailHeader::content2 {
+    padding-left:0px;
+    padding-top:1px;
+    background-image:none;
+    background-color:white;
+    border:0px;
+}
+
+af|query::content1 {
+    padding-left:35px;
+    padding-top:3px;
+}
+
+af|query::criterion-label {
+    color: black;
+    font-size:13px;
+    font-family: Microsoft YaHei;
+    height:26px;
+    vertical-align: middle !important;
+}
+
+af|query::criterion-content {
+    height:26px;
+    vertical-align: middle !important;
+}
+
+af|query::button, af|query::button:hover, af|query::button:active {
+    background-image:none !important;
+    background-color:#439BE4 !important; 
+    width:60px !important;
+    height:24px !important;
+    color: white !important;
+    font-size: 13px !important;
+    font-family: Microsoft YaHei !important;
+    border: 0px !important;
+    padding-top:0px;
+    padding-bottom:0px;
+    line-height:20px;
+    vertical-align: middle !important;
+}
+
+
+af|query::footer-facet-content-style {
+    background-color:#439BE4 !important; 
+    border: 0px !important;
+}
+
+af|query::footer-facet-content-style div {
+    border: 0px !important;
+}
+af|query::footer-facet-content-style table td {
+    background-color:#439BE4 !important; 
+}
+
+af|query::footer-facet-content-style table td span {
+    color: white !important;
+    font-size: 13px;
+    font-family: Microsoft YaHei !important;
+}
+
+af|query af|inputText::content, af|query af|inputDate::content {
+    width:170px !important;
+}
+
+af|query af|selectOneChoice::content {
+    width: 177px !important;
+}
+
+af|column::column-header-cell-content {
+    font-size: 13px;
+    font-family: Microsoft YaHei;
+	font-weight: bold;
+    color: #333333;
+}
+
+af|column::column-footer-cell {
+    height: 23px;
+    font-size: 13px;
+    font-family: Microsoft YaHei;
+    border: 0px;
+    border-bottom:1px solid #CCCCCC;
+    background-image:none;
+    background-color: #E0E0E0;
+}
+
+af|inputText input {
+    border: 1px solid #999999 !important;
+    background-image:none;
+    height: 18px;
+    font-size: 13px !important;
+    font-family: Microsoft YaHei;
+}
+
+af|selectOneChoice::content, af|inputDate::content, af|inputListOfValues::content {
+    border: 1px solid #999999 !important;
+    background-image:none;
+    height: 18px;
+    font-size: 13px !important;
+    font-family: Microsoft YaHei;
+}
+
+af|selectOneChoice:read-only::content, af|inputListOfValues:read-only::content,
+af|inputDate:read-only::content {
+    border: 0px !important;
+    background-image:none;
+    height: 22px;
+    font-size: 13px !important;
+    font-family: Microsoft YaHei;
+    color: black;
+}
+
+af|inputText:read-only::content {
+    border: 0px !important;
+    background-image:none;
+    font-size: 13px !important;
+    font-family: Microsoft YaHei;
+    color: black;
+}
+
+af|selectOneChoice:disabled::content, af|inputDate:disabled::content, 
+af|inputListOfValues:disabled::content {
+    border: 1px solid #999999 !important;
+    background-image:none;
+    height: 18px;
+    font-size: 13px !important;
+    font-family: Microsoft YaHei;
+    color: black;
+}
+
+af|inputText:disabled::content{
+    border: 1px solid #999999 !important;
+    background-image:none;
+    font-size: 13px !important;
+    font-family: Microsoft YaHei;
+    color: black;
+}
+
+af|inputText::label, af|selectOneChoice::label, af|selectBooleanCheckbox::label,af|panelLabelAndMessage::label, af|inputDate::label,
+af|inputListOfValues::label {
+    color: black !important;
+    height: 22px;
+    font-size: 13px !important;
+    font-family: Microsoft YaHei;
+}
+
+af|selectOneChoice::content {
+    width:170px;
+    height: 22px;
+}
+
+af|panelLabelAndMessage::content-cell {
+    color: black !important;
+    font-size: 13px;
+    font-family: Microsoft YaHei;
+    height: 22px;
+    vertical-align: middle !important;
+}
+
+af|inputDate::launch-icon-style, af|inputDate::launch-icon-style:active, af|inputDate::launch-icon-style:hover,
+af|inputDate::launch-icon-style:disabled, af|inputDate::launch-icon-style:disabled:active{
+    height: 14px !important;
+    background-image: url(http://home.glodon.com:7778/resources/icon/calendar.png) !important;
+    margin-bottom:3px !important;
+}
+
+af|showDetailHeader af|table, af|panelCollection af|table {
+    border: 0px;
+    background-color: white;
+    font-size: 13px;
+    font-family: Microsoft YaHei;
+}
+
+af|column::column-header-cell {
+    height: 23px;
+    border-right:1px solid #CCCCCC;
+    border-bottom:1px solid #CCCCCC;
+    background-image:none;
+    background-color: #E0E0E0;
+}
+
+af|column::data-cell, af|column::banded-data-cell {
+    height: 27px;
+    border: 0px !important;
+    font-size: 13px;
+    font-family: Microsoft YaHei;
+}
+
+af|column::banded-data-cell {
+    background-color:#EBEBEB !important;
+}
+
+af|table::data-row:selected af|column::data-cell, af|table::data-row:selected af|column::banded-data-cell {
+	background-color:#439BE4 !important;
+	color: white !important;
+}
+
+af|table::data-row:selected af|column::data-cell af|commandLink,
+af|table::data-row:selected af|column::data-cell af|goLink,
+af|table::data-row:selected af|column::data-cell af|commandImageLink::text,
+af|table::data-row:selected af|column::data-cell af|goImageLink::text,
+af|table::data-row:selected af|column::banded-data-cell af|commandLink,
+af|table::data-row:selected af|column::banded-data-cell af|goLink,
+af|table::data-row:selected af|column::banded-data-cell af|commandImageLink::text,
+af|table::data-row:selected af|column::banded-data-cell af|goImageLink::text {
+    background-color:#439BE4 !important;
+    color: white !important;
+}
+
+af|table::data-row:hover af|column::data-cell {
+	background-color:white !important;
+}
+
+af|table::data-row:hover af|column::banded-data-cell {
+	background-color:none !important;
+}
+
+af|table::data-row:selected:hover af|column::data-cell {
+	background-color:#439BE4 !important;
+}
+
+af|table af|commandLink, af|table af|goLink, af|table af|commandImageLink::text, af|table af|goImageLink::text, 
+af|table af|goImageLink:disabled::text, af|table af|commandImageLink:disabled::text {
+    font-size: 13px;
+    font-family: Microsoft YaHei;
+    color: black;
+}
+
+af|table af|commandLink, af|table af|goLink, af|table af|commandImageLink, af|table af|goImageLink {
+    /*text-decoration:underline;*/
+    color: black;
+}
+
+af|table af|goImageLink:disabled, af|table af|commandImageLink:disabled {
+    text-decoration:none;
+}
+
+af|table af|column::column-filter-cell {
+    height: 27px;
+}
+
+af|table af|column::column-filter-cell input {
+    height:25px;
+}
+
+af|panelHeader::title-table {
+    height:38px !important;
+    font:18px/38px Microsoft YaHei !important;
+}
+
+af|panelHeader::title-text0 {
+    font:18px/38px Microsoft YaHei !important;
+    font-weight: normal;
+    color: Black;
+    padding-left:8px;
+}
+
+af|panelHeader::content0 {
+    padding-left:0px !important;
+}
+
+af|panelSplitter af|panelHeader::content0 {
+    margin-top:13px;
+}
+
+af|panelSplitter af|panelStretchLayout af|panelHeader::content0 {
+    margin-top:0px;
+}
+
+af|panelCollection {
+    border-top: 1px solid #CCCCCC;
+    border-bottom: 0px;
+    /*border-bottom: 1px solid #CCCCCC;*/
+    /*-tr-toolbar-height: 30px;*/
+}
+
+af|panelCollection > div:first-child > div:first-child {
+    background-color: white;
+}
+
+af|panelCollection > div:first-child > div:first-child div {
+    border: 0px !important;
+}
+
+af|panelCollection > div:first-child > div:first-child > div:first-child > div:first-child {
+    /*height:30px;*/
+    padding-top: 5px;
+}
+
+af|panelCollection > div:first-child > div:first-child > div:first-child > div:first-child > table:first-child a {
+    font-size: 14px;
+    font-family: Microsoft YaHei;
+    color: black;
+}
+
+af|panelCollection > div:first-child > div:first-child > div:first-child > div:first-child > table:first-child td {
+    border:0px !important;
+    background-image:none;
+    line-height:14px;
+}
+
+/*af|panelCollection::qbe-icon {
+    content: url(http://portaldev.srrc.com/portal_resources/icon/funnel.png);
+}
+
+af|panelCollection::maximize-icon {
+    content: url(http://portaldev.srrc.com/portal_resources/icon/maximize.png);
+}*/
+
+/*af|panelCollection > div:first-child > div:last-child div {
+    background-color: white;
+    border-color:#CCCCCC !important;
+}*/
+
+af|panelCollection af|table {
+    border: 0px;
+    border-top: 1px solid #CCCCCC;
+    background-color: white;
+}
+
+/* panelCollection组件最下面的toolbar */
+.xpp .xpf .xnc {
+	background-color: white !important;
+	border-left:0px !important;
+	border-right:0px !important;
+	border:1px solid #CCCCCC;
+}
+
+.xpp .xpf .xnc table td {
+	white-space:nowrap;
+	font-size:13px;
+	padding-right: 20px;
+	font-weight:bold;
+	color: #333333;
+}
+
+.xpp .xpf .xnc table .x12p {
+	padding-right:0px;
+	padding-left: 0px;
+}
+
+.xpp .xpf .xnc table td table td {
+	padding-right:0px;
+	padding-left: 0px;
+}
+
+.xpp .xpf .xnc table td span  {
+	font-size:13px;
+	font-weight:normal;
+	color: #333333;
+}
+
+.xpp .xpf .xnc table td a {
+	font-size:13px;
+	font-weight:normal;
+	color: #333333 !important;
+}
+
+.xpp .xpf .xnc table .x12p {
+	border-right: 1px solid #CCCCCC !important;
+}
+
+
+
+.xlh {
+    border: 0px !important;
+    border-top: 1px solid #CCCCCC !important;
+    border-bottom: 1px solid #CCCCCC !important;
+    background-color: white !important;
+}
+
+af|commandToolbarButton::text {
+    font-size: 13px;
+    font-family: Microsoft YaHei;
+    line-height: 13px;
+}
+
+af|commandButton, af|commandButton:hover {
+    background-color: #439BE4 !important; 
+    background-image: none !important;
+    color: white !important;
+    font-size: 13px !important;
+    font-family: Microsoft YaHei;
+    border:0px !important;
+}
+
+af|commandButton::text {
+    font-size: 13px !important;
+    font-family: Microsoft YaHei;
+}
+
+af|commandButton:hover::text {
+    font-size: 13px !important;
+    font-family: Microsoft YaHei;
+}
+
+af|panelFormLayout af|commandLink, af|panelFormLayout af|goLink, af|panelFormLayout af|commandImageLink::text, 
+af|panelFormLayout af|goImageLink::text, af|panelFormLayout af|goImageLink:disabled::text {
+    font-size: 13px;
+    font-family: Microsoft YaHei;
+    color: black;
+}
+
+af|panelFormLayout::column td {
+    vertical-align:middle !important;
+}
+
+af|commandLink, af|commandImageLink::text {
+    font-size: 13px;
+    font-family: Microsoft YaHei;
+    color: black;
+}
+
+af|goLink, af|goLink:visited {
+    color: black;
+}
+
+af|dvt-pivotTable::column-header-cell {
+    background-color: #CFE3A1 !important;
+    height:22px;
+}
+
+af|dvt-pivotTable::corner {
+    background-color: #CFE3A1 !important;
+    background-image: none !important;
+    height:22px;
+}
+
+af|tree::node-stamp-text a span{
+    font-size:13px !important;
+    font-family: Microsoft YaHei;
+}
+
+af|tree af|column af|goImageLink {
+    font-size: 13px;
+    font-family: Microsoft YaHei;
+}
+
+af|panelGroupLayout {
+    font-size: 13px;
+    font-family: Microsoft YaHei;
+}
+
+af|calendar {
+border-width:0px;
+font-family:Microsoft YaHei !important;
+}
+
+af|tree::collapsed-icon {
+  content: url("http://home.glodon.com:7778/resources/icon/plus.png");
+}
+af|tree::expanded-icon {
+  content: url("http://home.glodon.com:7778/resources/icon/minus.png");  
+}
+af|tree::leaf-icon { 
+  content: url("http://home.glodon.com:7778/resources/icon/none.png");
+}
+af|tree::collapsed-icon-style {-tr-inhibit: background-image;padding-right: 0px; }
+af|tree::expanded-icon-style {-tr-inhibit: background-image;padding-right: 0px; padding-top:5px;}
+af|tree::leaf-icon-style {-tr-inhibit: background-image;padding-right: 0px;}
+af|tree::node-anim-icon-style {-tr-inhibit: background-image;padding-right: 0px;}
+af|tree::selector-icon-style {-tr-inhibit: background-image;}
+
+/*-- 解决在IE中，Tree组件选择不了问题 */
+#__af_Z_tooltip {
+   display: none;
+}
+
+af|quickQuery::label {
+     font-size: 13px;
+     font-family: Microsoft YaHei;
+     color:black;
+}
+
+af|panelBox::header-text h1 {
+     font-size: 13px !important;
+     font-family: Microsoft YaHei;
+     color:black;
+}
+
+.x1bc.p_AFMedium, .x1bc.x1c9 > .xgy .xht {
+	border: 0 !important;
+}
+
+af|selectBooleanCheckbox::content {
+    font-size:13px;
+}
+
+af|dialog::content{
+    background-color: white; 
+    background-image: none;
+}
+
+af|dialog::footer-button-affirmative, af|dialog::footer-button-affirmative:hover,
+af|dialog::footer-button-cancel, af|dialog::footer-button-cancel:hover{
+    background-color: #439BE4 !important; 
+    background-image: none !important;
+    filter:none;
+}

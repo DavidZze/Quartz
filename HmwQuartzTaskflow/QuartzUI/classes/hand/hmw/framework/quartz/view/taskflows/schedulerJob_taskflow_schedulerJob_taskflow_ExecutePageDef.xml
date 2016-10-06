@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93"
+                id="schedulerJob_taskflow_schedulerJob_taskflow_ExecutePageDef"
+                Package="hand.hmw.framework.quartz.view.taskflows"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="SchedulejobsBySqlVO1" RangeSize="25"
+              DataControl="QuartzAMDataControl"
+              id="SchedulejobsBySqlVO1Iterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="SchedulejobsBySqlVO1Iterator" id="Execute"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

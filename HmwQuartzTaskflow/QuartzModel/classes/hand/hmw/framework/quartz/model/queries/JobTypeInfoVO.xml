@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="JobTypeInfoVO"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  FetchMode="FETCH_AS_NEEDED"
+  FetchSize="26">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="hand.hmw.framework.quartz.model.queries.JobTypeInfoVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="JobTypeStaticLovVO1"
+    ViewObjectName="hand.hmw.framework.quartz.model.queries.lov.JobTypeStaticLovVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="JobTypeNameLov"
+    ListVOName="JobTypeStaticLovVO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="JobTypeNameLov_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="JobTypeName"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="JobClassName"/>
+      <Item Value="CreateBy"/>
+      <Item Value="JobDescription"/>
+      <Item Value="JobTypeId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="TypeNameDesc"/>
+      <Item Value="JobClass"/>
+      <Item Value="CreateBy"/>
+      <Item Value="Description"/>
+      <Item Value="TypeId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="TypeNameDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery>
+    <![CDATA[select 
+        ''    job_class_name
+,       ''    job_description
+,       ''    job_type_name
+,       ''    create_by
+,       ''    create_on
+,       ''    parm_db_procedure_name
+,       ''    parm_webservice_name   
+,       ''    job_Type_ID
+from dual]]>
+  </SQLQuery>
+  <ViewAttribute
+    Name="JobClassName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="JOB_CLASS_NAME"
+    Expression="JOB_CLASS_NAME"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="40"/>
+        <LABEL
+          ResId="${adfBundle['hand.hmw.framework.quartz']['model.QuartzModelBundle.hand.hmw.framework.quartz.model.JOB_CLASS_NAME']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="JobDescription"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="32"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="JOB_DESCRIPTION"
+    Expression="JOB_DESCRIPTION"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="40"/>
+        <LABEL
+          ResId="${adfBundle['hand.hmw.framework.quartz']['model.QuartzModelBundle.hand.hmw.framework.quartz.model.JOB_DESCRIPTION']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="JobTypeName"
+    LOVName="JobTypeNameLov"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="32"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="JOB_TYPE_NAME"
+    Expression="JOB_TYPE_NAME"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <DISPLAYWIDTH
+          Value="40"/>
+        <LABEL
+          ResId="${adfBundle['hand.hmw.framework.quartz']['model.QuartzModelBundle.hand.hmw.framework.quartz.model.JOB_TYPE_NAME']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CreateBy"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="32"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="CREATE_BY"
+    Expression="CREATE_BY"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="40"/>
+        <LABEL
+          ResId="${adfBundle['hand.hmw.framework.quartz']['model.QuartzModelBundle.hand.hmw.framework.quartz.model.CREATE_BY']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CreateOn"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="32"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="CREATE_ON"
+    Expression="CREATE_ON"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="40"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ParmDbProcedureName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="32"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="PARM_DB_PROCEDURE_NAME"
+    Expression="PARM_DB_PROCEDURE_NAME"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="40"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ParmWebserviceName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="32"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="PARM_WEBSERVICE_NAME"
+    Expression="PARM_WEBSERVICE_NAME"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="40"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="JobTypeId"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="32"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="JOB_TYPE_ID"
+    Expression="JOB_TYPE_ID"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="40"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="hand.hmw.framework.quartz.model.QuartzModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

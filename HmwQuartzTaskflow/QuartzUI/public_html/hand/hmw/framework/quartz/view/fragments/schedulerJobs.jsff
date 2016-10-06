@@ -1,0 +1,374 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="quartzuiBundle"
+         value="#{adfBundle['hand.hmw.framework.quartz.view.QuartzUIBundle']}"/>
+  <af:panelStretchLayout id="psl1" startWidth="auto" endWidth="auto"
+                         topHeight="auto" bottomHeight="auto">
+    <f:facet name="bottom">
+      <af:panelGroupLayout layout="scroll"
+                           xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                           id="pgl1">
+        <af:popup id="Quarp1">
+          <af:dialog id="d1"
+                     title="#{quartzuiBundle.HND_HMW_FRM_QUARTZ_VIEW_SCHEDULER_DELETE_DIALOG_HINT}"
+                     dialogListener="#{pageFlowScope.jobQueryPageManageBean.deleteDialogLsnr}">
+            <af:outputText value="#{quartzuiBundle.HND_HMW_FRM_QUARTZ_VIEW_SCHEDULER_DELETE_INFO}"
+                           id="ot12"/>
+          </af:dialog>
+        </af:popup>
+        <af:popup id="Quarp2" contentDelivery="lazyUncached">
+          <af:dialog id="d2"
+                     title="#{quartzuiBundle.HND_HMW_FRM_QUARTZ_VIEW_SCHEDULER_UPDATE_DIALOG_HINT}"
+                     dialogListener="#{pageFlowScope.jobQueryPageManageBean.rescheduleJobDialogLsnr}">
+            <af:panelHeader text="#{quartzuiBundle.HND_HMW_FRM_QUARTZ_VIEW_SCHEDULER_JOB_DETAUL}"
+                            id="ph2">
+              <af:panelFormLayout id="pfl1">
+                <af:inputText value="#{bindings.TriggerState.inputValue}"
+                              label="#{quartzuiBundle['hand.hmw.framework.quartz.model.TRIGGER_STATE']}"
+                              required="#{bindings.TriggerState.hints.mandatory}"
+                              columns="#{bindings.TriggerState.hints.displayWidth}"
+                              maximumLength="#{bindings.TriggerState.hints.precision}"
+                              shortDesc="#{bindings.TriggerState.hints.tooltip}"
+                              id="it12" disabled="true">
+                  <f:validator binding="#{bindings.TriggerState.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.JobName.inputValue}"
+                              label="#{quartzuiBundle['hand.hmw.framework.quartz.model.JOB_NAME']}"
+                              required="#{bindings.JobName.hints.mandatory}"
+                              columns="#{bindings.JobName.hints.displayWidth}"
+                              maximumLength="#{bindings.JobName.hints.precision}"
+                              shortDesc="#{bindings.JobName.hints.tooltip}"
+                              id="it18" disabled="true">
+                  <f:validator binding="#{bindings.JobName.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.JobGroup.inputValue}"
+                              label="#{quartzuiBundle['hand.hmw.framework.quartz.model.JOB_GROUP']}"
+                              required="#{bindings.JobGroup.hints.mandatory}"
+                              columns="#{bindings.JobGroup.hints.displayWidth}"
+                              maximumLength="#{bindings.JobGroup.hints.precision}"
+                              shortDesc="#{bindings.JobGroup.hints.tooltip}"
+                              id="it2" disabled="true">
+                  <f:validator binding="#{bindings.JobGroup.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.JobCronExpression.inputValue}"
+                              label="#{quartzuiBundle['hand.hmw.framework.quartz.model.JOB_CRON_EXPR']}"
+                              required="#{bindings.JobCronExpression.hints.mandatory}"
+                              columns="#{bindings.JobCronExpression.hints.displayWidth}"
+                              maximumLength="#{bindings.JobCronExpression.hints.precision}"
+                              shortDesc="#{bindings.JobCronExpression.hints.tooltip}"
+                              id="it8" disabled="true">
+                  <f:validator binding="#{bindings.JobCronExpression.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.StartTime_tra.inputValue}"
+                              label="#{quartzuiBundle['hand.hmw.framework.quartz.model.START_NAME']}"
+                              required="#{bindings.StartTime_tra.hints.mandatory}"
+                              columns="#{bindings.StartTime_tra.hints.displayWidth}"
+                              maximumLength="#{bindings.StartTime_tra.hints.precision}"
+                              shortDesc="#{bindings.StartTime_tra.hints.tooltip}"
+                              id="it3" disabled="true">
+                  <f:validator binding="#{bindings.StartTime_tra.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.PreFireTime_tra.inputValue}"
+                              label="#{quartzuiBundle['hand.hmw.framework.quartz.model.PRE_FIRE_TIME']}"
+                              required="#{bindings.PreFireTime_tra.hints.mandatory}"
+                              columns="#{bindings.PreFireTime_tra.hints.displayWidth}"
+                              maximumLength="#{bindings.PreFireTime_tra.hints.precision}"
+                              shortDesc="#{bindings.PreFireTime_tra.hints.tooltip}"
+                              id="it4" disabled="true">
+                  <f:validator binding="#{bindings.PreFireTime_tra.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.NextFireTime_tra.inputValue}"
+                              label="#{quartzuiBundle['hand.hmw.framework.quartz.model.NEXT_FIRE_TIME']}"
+                              required="#{bindings.NextFireTime_tra.hints.mandatory}"
+                              columns="#{bindings.NextFireTime_tra.hints.displayWidth}"
+                              maximumLength="#{bindings.NextFireTime_tra.hints.precision}"
+                              shortDesc="#{bindings.NextFireTime_tra.hints.tooltip}"
+                              id="it11" disabled="true">
+                  <f:validator binding="#{bindings.NextFireTime_tra.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.JobDescription.inputValue}"
+                              label="#{quartzuiBundle['hand.hmw.framework.quartz.model.JOB_DESCRIPTION']}"
+                              required="#{bindings.JobDescription.hints.mandatory}"
+                              columns="80"
+                              maximumLength="#{bindings.JobDescription.hints.precision}"
+                              shortDesc="#{bindings.JobDescription.hints.tooltip}"
+                              id="it5" rows="5" disabled="true"
+                              rendered="#{bindings.JobDescription.inputValue != null}">
+                  <f:validator binding="#{bindings.JobDescription.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.JobUri_tra.inputValue}"
+                              label="#{quartzuiBundle['hand.hmw.framework.quartz.model.JOB_URI']}"
+                              required="#{bindings.JobUri_tra.hints.mandatory}"
+                              columns="80"
+                              maximumLength="#{bindings.JobUri_tra.hints.precision}"
+                              shortDesc="#{bindings.JobUri_tra.hints.tooltip}"
+                              id="it16" disabled="true"
+                              rendered="#{bindings.JobUri_tra.inputValue != null}">
+                  <f:validator binding="#{bindings.JobUri_tra.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.JobRequestMessage_tra.inputValue}"
+                              label="#{quartzuiBundle['hand.hmw.framework.quartz.model.JOB_REQUEST_MESSAGE']}"
+                              required="#{bindings.JobRequestMessage_tra.hints.mandatory}"
+                              columns="80"
+                              maximumLength="#{bindings.JobRequestMessage_tra.hints.precision}"
+                              shortDesc="#{bindings.JobRequestMessage_tra.hints.tooltip}"
+                              id="it6" rows="10" disabled="true"
+                              rendered="#{bindings.JobUri_tra.inputValue != null}">
+                  <f:validator binding="#{bindings.JobRequestMessage_tra.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.DBHostName_tra.inputValue}"
+                              label="#{quartzuiBundle['hand.hmw.framework.quartz.model.HOST_NAME']}"
+                              required="#{bindings.DBHostName_tra.hints.mandatory}"
+                              columns="#{bindings.DBHostName_tra.hints.displayWidth}"
+                              maximumLength="#{bindings.DBHostName_tra.hints.precision}"
+                              shortDesc="#{bindings.DBHostName_tra.hints.tooltip}"
+                              id="it9" disabled="true"
+                              rendered="#{bindings.DBHostName_tra.inputValue != null}">
+                  <f:validator binding="#{bindings.DBHostName_tra.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.DBPort_tra.inputValue}"
+                              label="#{quartzuiBundle['hand.hmw.framework.quartz.model.PORT']}"
+                              required="#{bindings.DBPort_tra.hints.mandatory}"
+                              columns="#{bindings.DBPort_tra.hints.displayWidth}"
+                              maximumLength="#{bindings.DBPort_tra.hints.precision}"
+                              shortDesc="#{bindings.DBPort_tra.hints.tooltip}"
+                              id="it7" disabled="true"
+                              rendered="#{bindings.DBHostName_tra.inputValue != null}">
+                  <f:validator binding="#{bindings.DBPort_tra.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.DBSid_tra.inputValue}"
+                              label="#{quartzuiBundle['hand.hmw.framework.quartz.model.SID']}"
+                              required="#{bindings.DBSid_tra.hints.mandatory}"
+                              columns="#{bindings.DBSid_tra.hints.displayWidth}"
+                              maximumLength="#{bindings.DBSid_tra.hints.precision}"
+                              shortDesc="#{bindings.DBSid_tra.hints.tooltip}"
+                              id="it15" disabled="true"
+                              rendered="#{bindings.DBHostName_tra.inputValue != null}">
+                  <f:validator binding="#{bindings.DBSid_tra.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.DBUsername_tra.inputValue}"
+                              label="#{quartzuiBundle['hand.hmw.framework.quartz.model.USERNAME']}"
+                              required="#{bindings.DBUsername_tra.hints.mandatory}"
+                              columns="#{bindings.DBUsername_tra.hints.displayWidth}"
+                              maximumLength="#{bindings.DBUsername_tra.hints.precision}"
+                              shortDesc="#{bindings.DBUsername_tra.hints.tooltip}"
+                              id="it13" disabled="true"
+                              rendered="#{bindings.DBHostName_tra.inputValue != null}">
+                  <f:validator binding="#{bindings.DBUsername_tra.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.DBPwd_tra.inputValue}"
+                              label="#{quartzuiBundle['hand.hmw.framework.quartz.model.PWD']}"
+                              required="#{bindings.DBPwd_tra.hints.mandatory}"
+                              columns="#{bindings.DBPwd_tra.hints.displayWidth}"
+                              maximumLength="#{bindings.DBPwd_tra.hints.precision}"
+                              shortDesc="#{bindings.DBPwd_tra.hints.tooltip}"
+                              id="it1" disabled="true"
+                              rendered="#{bindings.DBHostName_tra.inputValue != null}">
+                  <f:validator binding="#{bindings.DBPwd_tra.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.DBPlSql_tra.inputValue}"
+                              label="#{quartzuiBundle['hand.hmw.framework.quartz.model.PLSQL']}"
+                              required="#{bindings.DBPlSql_tra.hints.mandatory}"
+                              columns="80"
+                              maximumLength="#{bindings.DBPlSql_tra.hints.precision}"
+                              shortDesc="#{bindings.DBPlSql_tra.hints.tooltip}"
+                              id="it10" rows="5" disabled="true"
+                              rendered="#{bindings.DBHostName_tra.inputValue != null}">
+                  <f:validator binding="#{bindings.DBPlSql_tra.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.DBJndiName_tra.inputValue}"
+                              label="#{quartzuiBundle['hand.hmw.framework.quartz.model.JNDI_NAME']}"
+                              required="#{bindings.DBJndiName_tra.hints.mandatory}"
+                              columns="#{bindings.DBJndiName_tra.hints.displayWidth}"
+                              maximumLength="#{bindings.DBJndiName_tra.hints.precision}"
+                              shortDesc="#{bindings.DBJndiName_tra.hints.tooltip}"
+                              id="it14" disabled="true"
+                              rendered="#{bindings.DBJndiName_tra.inputValue != null}">
+                  <f:validator binding="#{bindings.DBJndiName_tra.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.DBPlSql2.inputValue}"
+                              label="#{quartzuiBundle['hand.hmw.framework.quartz.model.PLSQL']}"
+                              required="#{bindings.DBPlSql2.hints.mandatory}"
+                              columns="80"
+                              maximumLength="#{bindings.DBPlSql2.hints.precision}"
+                              shortDesc="#{bindings.DBPlSql2.hints.tooltip}"
+                              id="it17" rows="5" disabled="true"
+                              rendered="#{bindings.DBJndiName_tra.inputValue != null}">
+                  <f:validator binding="#{bindings.DBPlSql2.validator}"/>
+                </af:inputText>
+              </af:panelFormLayout>
+            </af:panelHeader>
+            <af:panelHeader text="#{quartzuiBundle.HND_HMW_FRM_QUARTZ_VIEW_SCHEDULER_UPDATE_CRON_EXPR}"
+                            id="ph3">
+              <af:inputText label="#{quartzuiBundle.HND_HMW_FRM_QUARTZ_VIEW_SCHEDULER_NEW_CRON_TRIGGER_INFO}"
+                            id="it19"
+                            value="#{pageFlowScope.jobQueryPageManageBean.newCronExpr}"/>
+            </af:panelHeader>
+          </af:dialog>
+        </af:popup>
+      </af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="center">
+      <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+        <f:facet name="toolbar">
+          <af:toolbar id="t1">
+            <af:panelGroupLayout id="pgl2" layout="horizontal">
+              <af:commandToolbarButton text="#{quartzuiBundle.HND_HMW_FRM_QUARTZ_VIEW_SCHEDULER_NEW_DEPLOYEE_JOB}"
+                                       id="ctb1" action="newJob"
+                                       icon="/css/add_enable.png"/>
+              <af:commandToolbarButton text="#{quartzuiBundle.HND_HMW_FRM_QUARTZ_VIEW_SCHEDULER_PAUSE_Job}"
+                                       id="ctb2"
+                                       actionListener="#{pageFlowScope.jobQueryPageManageBean.pauseJob}"
+                                       disabled="#{bindings.SchedulejobsBySqlVO1.currentRow == null}"
+                                       icon="/css/control_pause_enable.png"/>
+              <af:commandToolbarButton text="#{quartzuiBundle.HND_HMW_FRM_QUARTZ_VIEW_SCHEDULER_RECOVER_JOB}"
+                                       id="ctb3"
+                                       actionListener="#{pageFlowScope.jobQueryPageManageBean.resumeJob}"
+                                       disabled="#{bindings.SchedulejobsBySqlVO1.currentRow == null}"
+                                       icon="/css/redo.png"/>
+              <af:commandToolbarButton text="#{quartzuiBundle.HND_HMW_FRM_QUARTZ_VIEW_SCHEDULER_DELETE_JOB}"
+                                       id="ctb4"
+                                       disabled="#{bindings.SchedulejobsBySqlVO1.currentRow == null}"
+                                       icon="/css/delete_enable.png">
+                <af:showPopupBehavior popupId="::Quarp1"/>
+              </af:commandToolbarButton>
+              <af:commandToolbarButton text="#{quartzuiBundle.HND_HMW_FRM_QUARTZ_VIEW_SCHEDULER_EXECUTE_JOB_NOW}"
+                                       id="Quatb5"
+                                       actionListener="#{pageFlowScope.jobQueryPageManageBean.triggerJob}"
+                                       disabled="#{bindings.SchedulejobsBySqlVO1.currentRow == null}"
+                                       icon="/css/accept_enable.png"/>
+              <af:commandToolbarButton text="#{quartzuiBundle.HND_HMW_FRM_QUARTZ_VIEW_SCHEDULER_UPDATE_CRON_EXPR}"
+                                       id="ctb6"
+                                       disabled="#{bindings.SchedulejobsBySqlVO1.currentRow == null}"
+                                       icon="/css/edit_enable.png">
+                <af:showPopupBehavior popupId="::Quarp2"/>
+              </af:commandToolbarButton>
+              <f:facet name="separator">
+                <af:spacer width="10" height="10" id="s1"/>
+              </f:facet>
+            </af:panelGroupLayout>
+          </af:toolbar>
+        </f:facet>
+        <f:facet name="statusbar">
+          <af:toolbar id="t3">
+            <af:outputText id="ot13"
+                           value="#{quartzuiBundle.HMW_HAND_QUARTZ_TOATAL_ROW}#{bindings.SchedulejobsBySqlVO1Iterator.estimatedRowCount}"/>
+          </af:toolbar>
+        </f:facet>
+        <af:table value="#{bindings.SchedulejobsBySqlVO1.collectionModel}"
+                  var="row" rows="#{bindings.SchedulejobsBySqlVO1.rangeSize}"
+                  emptyText="#{bindings.SchedulejobsBySqlVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  fetchSize="#{bindings.SchedulejobsBySqlVO1.rangeSize}"
+                  rowBandingInterval="0"
+                  filterModel="#{bindings.SchedulejobsBySqlVCQuery.queryDescriptor}"
+                  queryListener="#{bindings.SchedulejobsBySqlVCQuery.processQuery}"
+                  filterVisible="true" varStatus="vs"
+                  selectedRowKeys="#{bindings.SchedulejobsBySqlVO1.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.SchedulejobsBySqlVO1.collectionModel.makeCurrent}"
+                  rowSelection="single" id="resId1"
+                  columnStretching="column:resId1c2"
+                  binding="#{pageFlowScope.jobQueryPageManageBean.schedulerJobTable}">
+          <af:column id="c3" rowHeader="true" width="5"/>
+          <af:column id="c1" width="30"
+                     headerText="#{quartzuiBundle.HND_HMW_FRM_QUARTZ_VIEW_SCHEDULER_COLUMN_NO}"
+                     align="center">
+            <af:outputText value="#{vs.index + 1}" id="ot11"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.SchedulejobsBySqlVO1.hints.SchedulerName.name}"
+                     filterable="true" sortable="true"
+                     headerText="#{quartzuiBundle['hand.hmw.framework.quartz.model.SCHEDULER_NAME']}"
+                     id="resId1c1" width="130">
+            <af:outputText value="#{row.SchedulerName}" id="ot10"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.SchedulejobsBySqlVO1.hints.JobName.name}"
+                     filterable="true" sortable="true"
+                     headerText="#{quartzuiBundle['hand.hmw.framework.quartz.model.JOB_NAME']}"
+                     id="resId1c2" width="200">
+            <af:outputText value="#{row.JobName}" id="ot6"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.SchedulejobsBySqlVO1.hints.JobGroup.name}"
+                     filterable="true" sortable="true"
+                     headerText="#{quartzuiBundle['hand.hmw.framework.quartz.model.JOB_GROUP']}"
+                     id="resId1c3" width="100">
+            <af:outputText value="#{row.JobGroup}" id="ot7"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.SchedulejobsBySqlVO1.hints.JobCronExpression.name}"
+                     filterable="true" sortable="true"
+                     headerText="#{quartzuiBundle['hand.hmw.framework.quartz.model.JOB_CRON_EXPR']}"
+                     id="resId1c4" width="180">
+            <af:outputText value="#{row.JobCronExpression}" id="ot1"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.SchedulejobsBySqlVO1.hints.StartTime_tra.name}"
+                     filterable="true" sortable="true"
+                     headerText="#{quartzuiBundle['hand.hmw.framework.quartz.model.START_NAME']}"
+                     id="resId1c5" width="200">
+            <af:outputText value="#{row.StartTime_tra}" id="ot3"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.SchedulejobsBySqlVO1.hints.PreFireTime_tra.name}"
+                     filterable="true" sortable="true"
+                     headerText="#{quartzuiBundle['hand.hmw.framework.quartz.model.PRE_FIRE_TIME']}"
+                     id="resId1c6" width="200">
+            <af:outputText value="#{row.PreFireTime_tra}" id="ot5"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.SchedulejobsBySqlVO1.hints.NextFireTime_tra.name}"
+                     filterable="true" sortable="true"
+                     headerText="#{quartzuiBundle['hand.hmw.framework.quartz.model.NEXT_FIRE_TIME']}"
+                     id="resId1c7" width="200">
+            <af:outputText value="#{row.NextFireTime_tra}" id="ot9"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.SchedulejobsBySqlVO1.hints.TriggerState.name}"
+                     filterable="true" sortable="true"
+                     headerText="#{quartzuiBundle['hand.hmw.framework.quartz.model.TRIGGER_STATE']}"
+                     id="resId1c8">
+            <af:selectOneChoice value="#{row.bindings.TriggerState.inputValue}"
+                                label="#{row.bindings.TriggerState.label}"
+                                required="#{bindings.SchedulejobsBySqlVO1.hints.TriggerState.mandatory}"
+                                shortDesc="#{bindings.SchedulejobsBySqlVO1.hints.TriggerState.tooltip}"
+                                id="soc1" readOnly="true">
+              <f:selectItems value="#{row.bindings.TriggerState.items}"
+                             id="si1"/>
+            </af:selectOneChoice>
+          </af:column>
+          <af:column sortProperty="#{bindings.SchedulejobsBySqlVO1.hints.Priority.name}"
+                     filterable="true" sortable="true"
+                     headerText="#{quartzuiBundle['hand.hmw.framework.quartz.model.PRIORITY']}"
+                     id="resId1c9" width="60">
+            <af:outputText value="#{row.Priority}" id="ot4">
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.SchedulejobsBySqlVO1.hints.Priority.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.SchedulejobsBySqlVO1.hints.JobDescription.name}"
+                     filterable="true" sortable="true"
+                     headerText="#{quartzuiBundle['hand.hmw.framework.quartz.model.JOB_DESCRIPTION']}"
+                     id="resId1c10">
+            <af:outputText value="#{row.JobDescription}" id="ot2"/>
+          </af:column>
+          <af:column id="c2"
+                     headerText="#{quartzuiBundle.HMW_HAND_QUARTZ_VIEW_DETAIL}"
+                     align="center" width="50">
+            <af:commandImageLink id="cil1" icon="/css/info.png"
+                                 action="goDetail"/>
+          </af:column>
+        </af:table>
+      </af:panelCollection>
+    </f:facet>
+    <f:facet name="top">
+      <af:panelHeader text="#{quartzuiBundle.HND_HMW_FRM_QUARTZ_VIEW_SCHEDULER_JOB_QUERY}"
+                      id="Quaph1">
+        <af:query id="qryId1"
+                  headerText="#{quartzuiBundle.HND_HMW_FRM_QUARTZ_VIEW_SCHEDULER_JOB_SEARCH}"
+                  disclosed="true"
+                  value="#{bindings.SchedulejobsBySqlVCQuery.queryDescriptor}"
+                  model="#{bindings.SchedulejobsBySqlVCQuery.queryModel}"
+                  queryListener="#{bindings.SchedulejobsBySqlVCQuery.processQuery}"
+                  queryOperationListener="#{bindings.SchedulejobsBySqlVCQuery.processQueryOperation}"
+                  resultComponentId="::pc1" saveQueryMode="hidden"
+                  modeChangeVisible="false" rows="1" maxColumns="3"/>
+      </af:panelHeader>
+    </f:facet>
+  </af:panelStretchLayout>
+</jsp:root>

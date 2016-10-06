@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="newDeployeJobPagePageDef"
+                Package="hand.hmw.framework.quartz.view.fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="JobTypeInfoVO1" RangeSize="25"
+              DataControl="QuartzAMDataControl" id="JobTypeInfoVO1Iterator"/>
+    <iterator Binds="DBJobInfoVO1" RangeSize="25"
+              DataControl="QuartzAMDataControl" id="DBJobInfoVO1Iterator"/>
+  </executables>
+  <bindings>
+    <list IterBinding="JobTypeInfoVO1Iterator" StaticList="false"
+          Uses="JobTypeNameLov" id="JobTypeName" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="JobTypeInfoVO1Iterator" id="JobClassName">
+      <AttrNames>
+        <Item Value="JobClassName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JobTypeInfoVO1Iterator" id="JobDescription">
+      <AttrNames>
+        <Item Value="JobDescription"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JobTypeInfoVO1Iterator" id="JobTypeId">
+      <AttrNames>
+        <Item Value="JobTypeId"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="DBJobInfoVO1Iterator" StaticList="false"
+          Uses="ConnTypeNameLov" id="ConnTypeName" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="DBJobInfoVO1Iterator" id="JndiName">
+      <AttrNames>
+        <Item Value="JndiName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DBJobInfoVO1Iterator" id="PlSql2">
+      <AttrNames>
+        <Item Value="PlSql2"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DBJobInfoVO1Iterator" id="HostName">
+      <AttrNames>
+        <Item Value="HostName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DBJobInfoVO1Iterator" id="Port">
+      <AttrNames>
+        <Item Value="Port"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DBJobInfoVO1Iterator" id="SId">
+      <AttrNames>
+        <Item Value="SId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DBJobInfoVO1Iterator" id="UserName">
+      <AttrNames>
+        <Item Value="UserName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DBJobInfoVO1Iterator" id="Pwd">
+      <AttrNames>
+        <Item Value="Pwd"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DBJobInfoVO1Iterator" id="PlSql">
+      <AttrNames>
+        <Item Value="PlSql"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DBJobInfoVO1Iterator" id="ConnTypeId">
+      <AttrNames>
+        <Item Value="ConnTypeId"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Rollback" DataControl="QuartzAMDataControl"
+            RequiresUpdateModel="false" Action="rollbackTransaction"/>
+  </bindings>
+</pageDefinition>

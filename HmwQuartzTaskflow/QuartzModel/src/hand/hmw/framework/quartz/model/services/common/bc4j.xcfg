@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="hand.hmw.framework.quartz.model.services.QuartzAM">
+      <AppModuleConfig DeployPlatform="LOCAL" DBconnection="jdbc/hrDS" jbo.project="hand.hmw.framework.quartz.model.QuartzModel" name="QuartzAMLocal" ApplicationName="hand.hmw.framework.quartz.model.services.QuartzAM">
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="hand.hmw.framework.quartz.model.services.QuartzAM"/>
+         <Custom JDBCDataSource="jdbc/ofmDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="hand.hmw.framework.quartz.model.QuartzModel" name="QuartzAMShared" ApplicationName="hand.hmw.framework.quartz.model.services.QuartzAM">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1" jbo.ampool.resetnontransactionalstate="false"/>
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="hand.hmw.framework.quartz.model.services.QuartzAM"/>
+         <Custom JDBCDataSource="jdbc/ofmDS"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

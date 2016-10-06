@@ -1,0 +1,215 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+ <c:set var="quartzuiBundle"
+         value="#{adfBundle['hand.hmw.framework.quartz.view.QuartzUIBundle']}"/>         
+  <af:panelHeader text="#{quartzuiBundle.HMW_HAND_QUARTZ_JOB_DETAIL}" id="ph1">
+    <f:facet name="context"/>
+    <f:facet name="menuBar"/>
+    <f:facet name="toolbar">
+      <af:toolbar id="t1">
+        <af:commandToolbarButton text="#{quartzuiBundle.HND_HMW_FRM_QUARTZ_VIEW_SCHEDULER_BACK}" id="ctb1"
+                                 action="back" icon="/css/arrow_undo.png"/>
+        <af:spacer width="10" height="10" id="s1"/>
+      </af:toolbar>
+    </f:facet>
+    <f:facet name="legend"/>
+    <f:facet name="info"/>
+    <af:panelFormLayout id="pfl1" labelWidth="150">
+      <af:inputText value="#{bindings.TriggerState.inputValue}"
+                    label="#{quartzuiBundle['hand.hmw.framework.quartz.model.TRIGGER_STATE']}"
+                    required="#{bindings.TriggerState.hints.mandatory}"
+                    columns="#{bindings.TriggerState.hints.displayWidth}"
+                    maximumLength="#{bindings.TriggerState.hints.precision}"
+                    shortDesc="#{bindings.TriggerState.hints.tooltip}" id="it12"
+                    disabled="true">
+        <f:validator binding="#{bindings.TriggerState.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.JobName.inputValue}"
+                    label="#{quartzuiBundle['hand.hmw.framework.quartz.model.JOB_NAME']}"
+                    required="#{bindings.JobName.hints.mandatory}"
+                    columns="#{bindings.JobName.hints.displayWidth}"
+                    maximumLength="#{bindings.JobName.hints.precision}"
+                    shortDesc="#{bindings.JobName.hints.tooltip}" id="it18"
+                    disabled="true">
+        <f:validator binding="#{bindings.JobName.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.JobGroup.inputValue}"
+                    label="#{quartzuiBundle['hand.hmw.framework.quartz.model.JOB_GROUP']}"
+                    required="#{bindings.JobGroup.hints.mandatory}"
+                    columns="#{bindings.JobGroup.hints.displayWidth}"
+                    maximumLength="#{bindings.JobGroup.hints.precision}"
+                    shortDesc="#{bindings.JobGroup.hints.tooltip}" id="it2"
+                    disabled="true">
+        <f:validator binding="#{bindings.JobGroup.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.JobCronExpression.inputValue}"
+                    label="#{quartzuiBundle['hand.hmw.framework.quartz.model.JOB_CRON_EXPR']}"
+                    required="#{bindings.JobCronExpression.hints.mandatory}"
+                    columns="#{bindings.JobCronExpression.hints.displayWidth}"
+                    maximumLength="#{bindings.JobCronExpression.hints.precision}"
+                    shortDesc="#{bindings.JobCronExpression.hints.tooltip}"
+                    id="it8" disabled="true">
+        <f:validator binding="#{bindings.JobCronExpression.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.StartTime_tra.inputValue}"
+                    label="#{quartzuiBundle['hand.hmw.framework.quartz.model.START_NAME']}"
+                    required="#{bindings.StartTime_tra.hints.mandatory}"
+                    columns="#{bindings.StartTime_tra.hints.displayWidth}"
+                    maximumLength="#{bindings.StartTime_tra.hints.precision}"
+                    shortDesc="#{bindings.StartTime_tra.hints.tooltip}" id="it3"
+                    disabled="true">
+        <f:validator binding="#{bindings.StartTime_tra.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.PreFireTime_tra.inputValue}"
+                    label="#{quartzuiBundle['hand.hmw.framework.quartz.model.PRE_FIRE_TIME']}"
+                    required="#{bindings.PreFireTime_tra.hints.mandatory}"
+                    columns="#{bindings.PreFireTime_tra.hints.displayWidth}"
+                    maximumLength="#{bindings.PreFireTime_tra.hints.precision}"
+                    shortDesc="#{bindings.PreFireTime_tra.hints.tooltip}"
+                    id="it4" disabled="true">
+        <f:validator binding="#{bindings.PreFireTime_tra.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.NextFireTime_tra.inputValue}"
+                    label="#{quartzuiBundle['hand.hmw.framework.quartz.model.NEXT_FIRE_TIME']}"
+                    required="#{bindings.NextFireTime_tra.hints.mandatory}"
+                    columns="#{bindings.NextFireTime_tra.hints.displayWidth}"
+                    maximumLength="#{bindings.NextFireTime_tra.hints.precision}"
+                    shortDesc="#{bindings.NextFireTime_tra.hints.tooltip}"
+                    id="it11" disabled="true">
+        <f:validator binding="#{bindings.NextFireTime_tra.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.JobDescription.inputValue}"
+                    label="#{quartzuiBundle['hand.hmw.framework.quartz.model.JOB_DESCRIPTION']}"
+                    required="#{bindings.JobDescription.hints.mandatory}"
+                    columns="80"
+                    maximumLength="#{bindings.JobDescription.hints.precision}"
+                    shortDesc="#{bindings.JobDescription.hints.tooltip}"
+                    id="it5" rows="5" disabled="true"
+                    rendered="#{bindings.JobDescription.inputValue != null}">
+        <f:validator binding="#{bindings.JobDescription.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.JobUri_tra.inputValue}"
+                    label="#{quartzuiBundle['hand.hmw.framework.quartz.model.JOB_URI']}"
+                    required="#{bindings.JobUri_tra.hints.mandatory}"
+                    columns="80"
+                    maximumLength="#{bindings.JobUri_tra.hints.precision}"
+                    shortDesc="#{bindings.JobUri_tra.hints.tooltip}" id="it16"
+                    disabled="true"
+                    rendered="#{bindings.JobUri_tra.inputValue != null}">
+        <f:validator binding="#{bindings.JobUri_tra.validator}"/>
+      </af:inputText>
+    </af:panelFormLayout>
+    <af:panelFormLayout id="pfl3" labelWidth="45"
+                        rendered="#{bindings.JobUri_tra.inputValue != null}">
+      <af:outputText value="#{quartzuiBundle['hand.hmw.framework.quartz.model.JOB_REQUEST_MESSAGE']}"
+                     id="ot1"/>
+    </af:panelFormLayout>
+    <af:panelFormLayout id="pfl2" labelWidth="150">
+      <af:inputText value="#{bindings.JobRequestMessage_tra.inputValue}"
+                    required="#{bindings.JobRequestMessage_tra.hints.mandatory}"
+                    columns="80"
+                    maximumLength="#{bindings.JobRequestMessage_tra.hints.precision}"
+                    shortDesc="#{bindings.JobRequestMessage_tra.hints.tooltip}"
+                    id="it6" rows="10" disabled="true"
+                    rendered="#{bindings.JobUri_tra.inputValue != null}">
+        <f:validator binding="#{bindings.JobRequestMessage_tra.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.DBHostName_tra.inputValue}"
+                    label="#{quartzuiBundle['hand.hmw.framework.quartz.model.HOST_NAME']}"
+                    required="#{bindings.DBHostName_tra.hints.mandatory}"
+                    columns="#{bindings.DBHostName_tra.hints.displayWidth}"
+                    maximumLength="#{bindings.DBHostName_tra.hints.precision}"
+                    shortDesc="#{bindings.DBHostName_tra.hints.tooltip}"
+                    id="it9" disabled="true"
+                    rendered="#{bindings.DBHostName_tra.inputValue != null}">
+        <f:validator binding="#{bindings.DBHostName_tra.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.DBPort_tra.inputValue}"
+                    label="#{quartzuiBundle['hand.hmw.framework.quartz.model.PORT']}"
+                    required="#{bindings.DBPort_tra.hints.mandatory}"
+                    columns="#{bindings.DBPort_tra.hints.displayWidth}"
+                    maximumLength="#{bindings.DBPort_tra.hints.precision}"
+                    shortDesc="#{bindings.DBPort_tra.hints.tooltip}" id="it7"
+                    disabled="true"
+                    rendered="#{bindings.DBHostName_tra.inputValue != null}">
+        <f:validator binding="#{bindings.DBPort_tra.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.DBSid_tra.inputValue}"
+                    label="#{quartzuiBundle['hand.hmw.framework.quartz.model.SID']}"
+                    required="#{bindings.DBSid_tra.hints.mandatory}"
+                    columns="#{bindings.DBSid_tra.hints.displayWidth}"
+                    maximumLength="#{bindings.DBSid_tra.hints.precision}"
+                    shortDesc="#{bindings.DBSid_tra.hints.tooltip}" id="it15"
+                    disabled="true"
+                    rendered="#{bindings.DBHostName_tra.inputValue != null}">
+        <f:validator binding="#{bindings.DBSid_tra.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.DBUsername_tra.inputValue}"
+                    label="#{quartzuiBundle['hand.hmw.framework.quartz.model.USERNAME']}"
+                    required="#{bindings.DBUsername_tra.hints.mandatory}"
+                    columns="#{bindings.DBUsername_tra.hints.displayWidth}"
+                    maximumLength="#{bindings.DBUsername_tra.hints.precision}"
+                    shortDesc="#{bindings.DBUsername_tra.hints.tooltip}"
+                    id="it13" disabled="true"
+                    rendered="#{bindings.DBHostName_tra.inputValue != null}">
+        <f:validator binding="#{bindings.DBUsername_tra.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.DBPwd_tra.inputValue}"
+                    label="#{quartzuiBundle['hand.hmw.framework.quartz.model.PWD']}"
+                    required="#{bindings.DBPwd_tra.hints.mandatory}"
+                    columns="#{bindings.DBPwd_tra.hints.displayWidth}"
+                    maximumLength="#{bindings.DBPwd_tra.hints.precision}"
+                    shortDesc="#{bindings.DBPwd_tra.hints.tooltip}" id="it1"
+                    disabled="true"
+                    rendered="#{bindings.DBHostName_tra.inputValue != null}">
+        <f:validator binding="#{bindings.DBPwd_tra.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.DBJndiName_tra.inputValue}"
+                    label="#{quartzuiBundle['hand.hmw.framework.quartz.model.JNDI_NAME']}"
+                    required="#{bindings.DBJndiName_tra.hints.mandatory}"
+                    columns="#{bindings.DBJndiName_tra.hints.displayWidth}"
+                    maximumLength="#{bindings.DBJndiName_tra.hints.precision}"
+                    shortDesc="#{bindings.DBJndiName_tra.hints.tooltip}"
+                    id="it14" disabled="true"
+                    rendered="#{bindings.DBJndiName_tra.inputValue != null}">
+        <f:validator binding="#{bindings.DBJndiName_tra.validator}"/>
+      </af:inputText>
+    </af:panelFormLayout>
+    <af:panelFormLayout id="pfl6" labelWidth="45"
+                        rendered="#{bindings.DBHostName_tra.inputValue != null}">
+      <af:outputText value="#{quartzuiBundle['hand.hmw.framework.quartz.model.PLSQL']}"
+                     id="ot2"/>
+    </af:panelFormLayout>
+    <af:panelFormLayout id="pfl4" labelWidth="150"
+                        rendered="#{bindings.DBHostName_tra.inputValue != null}">
+      <af:inputText value="#{bindings.DBPlSql_tra.inputValue}"
+                    required="#{bindings.DBPlSql_tra.hints.mandatory}"
+                    columns="80"
+                    maximumLength="#{bindings.DBPlSql_tra.hints.precision}"
+                    shortDesc="#{bindings.DBPlSql_tra.hints.tooltip}" id="it10"
+                    rows="5" disabled="true"
+                    rendered="#{bindings.DBHostName_tra.inputValue != null}">
+        <f:validator binding="#{bindings.DBPlSql_tra.validator}"/>
+      </af:inputText>
+    </af:panelFormLayout>
+    <af:panelFormLayout id="pfl7" labelWidth="45"
+                        rendered="#{bindings.DBJndiName_tra.inputValue != null}">
+      <af:outputText value="#{quartzuiBundle['hand.hmw.framework.quartz.model.PLSQL']}"
+                     id="ot3"/>
+    </af:panelFormLayout>
+    <af:panelFormLayout id="pfl5" labelWidth="150"
+                        rendered="#{bindings.DBJndiName_tra.inputValue != null}">
+      <af:inputText value="#{bindings.DBPlSql2.inputValue}"
+                    required="#{bindings.DBPlSql2.hints.mandatory}" columns="80"
+                    maximumLength="#{bindings.DBPlSql2.hints.precision}"
+                    shortDesc="#{bindings.DBPlSql2.hints.tooltip}" id="it17"
+                    rows="5" disabled="true"
+                    rendered="#{bindings.DBJndiName_tra.inputValue != null}">
+        <f:validator binding="#{bindings.DBPlSql2.validator}"/>
+      </af:inputText>
+    </af:panelFormLayout>
+  </af:panelHeader>
+</jsp:root>

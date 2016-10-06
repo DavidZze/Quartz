@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DBJobInfoVO"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  FetchMode="FETCH_AS_NEEDED"
+  FetchSize="26">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="hand.hmw.framework.quartz.model.queries.DBJobInfoVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="DBConnTypeLovVO1"
+    ViewObjectName="hand.hmw.framework.quartz.model.queries.lov.DBConnTypeLovVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="ConnTypeNameLov"
+    ListVOName="DBConnTypeLovVO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="ConnTypeNameLov_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ConnTypeName"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="ConnTypeId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ConnTypeName"/>
+      <Item Value="ConnTypeId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ConnTypeName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery>
+    <![CDATA[select 
+       ''    host_Name
+,      ''    port
+,      ''    s_id
+,      ''    user_name
+,      ''    pwd
+,      ''    pl_sql
+,      ''    Conn_type_id 
+,      ''    Conn_type_Name
+,      ''    jndi_name
+,      ''    pl_sql2
+from   dual]]>
+  </SQLQuery>
+  <ViewAttribute
+    Name="HostName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="HOST_NAME"
+    Expression="HOST_NAME"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="40"/>
+        <LABEL
+          ResId="${adfBundle['hand.hmw.framework.quartz']['model.QuartzModelBundle.hand.hmw.framework.quartz.model.HOST_NAME']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Port"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="800"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="PORT"
+    Expression="PORT"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['hand.hmw.framework.quartz']['model.QuartzModelBundle.hand.hmw.framework.quartz.model.PORT']}"/>
+        <DISPLAYWIDTH
+          Value="40"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SId"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="800"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="S_ID"
+    Expression="S_ID"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['hand.hmw.framework.quartz']['model.QuartzModelBundle.hand.hmw.framework.quartz.model.SID']}"/>
+        <DISPLAYWIDTH
+          Value="40"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="UserName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="800"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="USER_NAME"
+    Expression="USER_NAME"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['hand.hmw.framework.quartz']['model.QuartzModelBundle.hand.hmw.framework.quartz.model.USERNAME']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Pwd"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="800"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="PWD"
+    Expression="PWD"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['hand.hmw.framework.quartz']['model.QuartzModelBundle.hand.hmw.framework.quartz.model.PWD']}"/>
+        <DISPLAYWIDTH
+          Value="40"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PlSql"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="800"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="PL_SQL"
+    Expression="PL_SQL"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['hand.hmw.framework.quartz']['model.QuartzModelBundle.hand.hmw.framework.quartz.model.PLSQL']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ConnTypeId"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="800"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="CONN_TYPE_ID"
+    Expression="CONN_TYPE_ID"
+    SQLType="VARCHAR"/>
+  <ViewAttribute
+    Name="ConnTypeName"
+    LOVName="ConnTypeNameLov"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="800"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="CONN_TYPE_NAME"
+    Expression="CONN_TYPE_NAME"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="${adfBundle['hand.hmw.framework.quartz']['model.QuartzModelBundle.hand.hmw.framework.quartz.model.JOB_TYPE_NAME']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="JndiName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="800"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="JNDI_NAME"
+    Expression="JNDI_NAME"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['hand.hmw.framework.quartz']['model.QuartzModelBundle.hand.hmw.framework.quartz.model.JNDI_NAME']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PlSql2"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="800"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="PL_SQL2"
+    Expression="PL_SQL2"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['hand.hmw.framework.quartz']['model.QuartzModelBundle.hand.hmw.framework.quartz.model.PLSQL']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="hand.hmw.framework.quartz.model.QuartzModelBundle"/>
+  </ResourceBundle>
+</ViewObject>
